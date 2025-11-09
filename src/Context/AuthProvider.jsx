@@ -51,6 +51,7 @@ const AuthProvider = ({children}) => {
     }
     return (
         <div>
+          {/* AuthContext Added */}
             <AuthContext value={authInfo}>
                 {children}
             </AuthContext>
