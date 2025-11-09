@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.section {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.active {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
