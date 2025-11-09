@@ -43,11 +43,33 @@ const Register = () => {
     createUser(email, password)
       .then(async (result) => {
         const newUser = result.user;
-
         await updateProfile(newUser, {
           displayName: name,
           photoURL: photoUrl,
         });
+
+        //add user to database
+        const savedUser = {
+          name: name,
+          email: email,
+          photoUrl: photoUrl,
+        };
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(" data after user Saved to mongoDB", data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
         Swal.fire(
           "Success",
           "Account created successfully! You will be redirected to home page",
@@ -68,9 +90,29 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+
+        //create user in database
+        const newUser = {
+          name: user.displayName,
+          email: user.email,
+          photoUrl: user.photoURL,
+        };
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(" data after user Saved to mongoDB", data);
+          });
+
         Swal.fire({
           title: "Success",
-          text: "Logged in successfully from Register Page!",
+          text: "Logged in successfully! Redirecting to home page",
           icon: "success",
           confirmButtonText: "OK",
         }).then(() => {

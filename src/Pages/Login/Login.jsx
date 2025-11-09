@@ -15,6 +15,26 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+
+        //create user in database
+        const newUser = {
+          name: user.displayName,
+          email: user.email,
+          photoUrl: user.photoURL,
+        };
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(" data after user Saved", data);
+          });
+
         Swal.fire({
           title: "Success",
           text: "Logged in successfully from login page!",
@@ -33,7 +53,6 @@ const Login = () => {
         });
       });
   };
-
 
   const handleLogin = (e) => {
     e.preventDefault();

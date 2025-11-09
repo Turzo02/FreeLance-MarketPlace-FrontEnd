@@ -4,8 +4,6 @@ import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
-  console.log(user?.photoURL);
-  console.log(user?.displayName);
   const navigate = useNavigate();
   const handleSignOut = () => {
     signOutUser()
