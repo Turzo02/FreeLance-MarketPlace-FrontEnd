@@ -6,6 +6,7 @@ import WhyChooseUs from './WhyChooseUs';
 const Home = () => {
     return (
         <div className='section'>
+            {/* Homepage Added */}
             <Banner></Banner>
             <LatestJobs></LatestJobs>
             <TopCategories></TopCategories>
