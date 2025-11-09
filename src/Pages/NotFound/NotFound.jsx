@@ -4,6 +4,7 @@ import { NavLink } from "react-router";
 const NotFound = () => {
   return (
     <div className="bg-white">
+      {/* Not Found Page Added */}
       <div className="max-w-[1440px] mx-auto text-center py-10 px-6 sm:px-10">
         <div className="mb-8">
           <img
