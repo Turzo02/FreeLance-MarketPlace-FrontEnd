@@ -12,6 +12,7 @@ import AllJobs from "./Pages/AllJobs/AllJobs.jsx";
 import AddAJob from "./Pages/AddAJob/AddAJob.jsx";
 import MyAcceptedTasks from "./Pages/MyAcceptedTasks/MyAcceptedTasks.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
+import AuthProvider from "./Context/AuthProvider.jsx";
 
 
 const router = createBrowserRouter([
@@ -53,6 +54,8 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );

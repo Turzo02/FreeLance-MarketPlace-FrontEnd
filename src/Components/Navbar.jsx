@@ -1,6 +1,26 @@
-import React from "react";
-import { NavLink } from "react-router";
+import React, { use } from "react";
+import { Link, NavLink, useNavigate } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
 const Navbar = () => {
+  const { user, signOutUser } = use(AuthContext);
+  console.log(user?.photoURL);
+  console.log(user?.displayName);
+  const navigate = useNavigate();
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        Swal.fire({
+          title: "Success",
+          text: "Signed out successfully!",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          navigate("/login");
+        });
+      })
+      .catch((error) => console.error(error));
+  };
   const Links = (
     <>
       <li>
@@ -14,12 +34,6 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="/myAceptedTasks"> My Accepted Tasks </NavLink>
-      </li>
-      <li>
-        <NavLink to="/login"> Login </NavLink>
-      </li>
-      <li>
-        <NavLink to="/register">Register </NavLink>
       </li>
     </>
   );
@@ -59,8 +73,32 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{Links}</ul>
         </div>
         <div className="navbar-end">
-
-          <a className="btn">Button</a>
+          {user ? (
+                    <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 group cursor-pointer">
+                                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+                                    {user?.displayName}
+                                </span>
+                                <img
+                                    src={user?.photoURL}
+                                    alt="Profile"
+                                    className="w-8 h-8 object-cover rounded-full"
+                                />
+                            </div>
+                            <button onClick={handleSignOut} className="btn">
+                                Logout
+                            </button>
+                        </div>
+          ) : (
+            <div>
+              <Link to="/login">
+                <button className="btn">Login</button>
+              </Link>
+              <Link to="/register">
+                <button className="btn">Register</button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

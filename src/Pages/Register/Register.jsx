@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../../Context/AuthContext";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const { googleSignIn, createUser } = use(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -35,6 +40,51 @@ const Register = () => {
       );
       return;
     }
+    createUser(email, password)
+      .then(async (result) => {
+        const newUser = result.user;
+
+        await updateProfile(newUser, {
+          displayName: name,
+          photoURL: photoUrl,
+        });
+        Swal.fire(
+          "Success",
+          "Account created successfully! You will be redirected to home page",
+          "success"
+        );
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+        setSuccess(true);
+      })
+      .catch((error) => {
+        Swal.fire("Error", error.message, "error");
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          title: "Success",
+          text: "Logged in successfully from Register Page!",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        setError(error.message);
+        Swal.fire({
+          title: "Error",
+          text: error.message,
+          icon: "error",
+        });
+      });
   };
 
   return (
@@ -101,14 +151,12 @@ const Register = () => {
 
                   <button className="btn btn-neutral mt-4">Register</button>
                 </fieldset>
-
-                {error && <p className="text-red-400">{error}</p>}
-                {success && (
-                  <p className="text-green-300"> User created Succesfully</p>
-                )}
               </form>
 
-              <button className="btn bg-white text-black border-[#e5e5e5]">
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn bg-white text-black border-[#e5e5e5]"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"

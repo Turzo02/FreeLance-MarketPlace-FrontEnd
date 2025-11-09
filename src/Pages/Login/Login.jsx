@@ -1,10 +1,73 @@
-import React, { useState } from "react";
-import { Link } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { AuthContext } from "../../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Login = () => {
-      const [showPassword, setShowPassword] = useState(false);
-    
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const { googleSignIn, signInUser } = use(AuthContext);
+  const navigate = useNavigate();
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          title: "Success",
+          text: "Logged in successfully from login page!",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        setError(error.message);
+        Swal.fire({
+          title: "Error",
+          text: error.message,
+          icon: "error",
+        });
+      });
+  };
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess(false);
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setSuccess(true);
+        e.target.reset();
+
+        Swal.fire({
+          title: "Success",
+          text: "Logged in successfully !",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        setError(error.message);
+        Swal.fire({
+          title: "Error",
+          text: error.message,
+          icon: "error",
+        });
+      });
+  };
+
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
@@ -14,39 +77,50 @@ const Login = () => {
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
-              <fieldset className="fieldset">
-                <label className="label">Email</label>
-                <input type="email" className="input" placeholder="Email" />
+              <form onSubmit={handleLogin}>
+                <fieldset className="fieldset">
+                  <label className="label">Email</label>
+                  <input
+                    type="email"
+                    className="input"
+                    placeholder="Email"
+                    name="email"
+                  />
 
-                {/* password */}
-                <div className="relative w-full">
-                                  <label className="label">Password</label>
-                                  <input
-                                    type={showPassword ? "text" : "password"}
-                                    name="password"
-                                    className="input"
-                                    placeholder="Enter your password"
-                                    required
-                                  />
-                                  {/* Eye icon */}
-                                  <button
-                                    type="button"
-                                    className="absolute top-[50%] right-3  cursor-pointer text-blue-100 z-40"
-                                    onClick={() => setShowPassword(!showPassword)}
-                                  >
-                                    {showPassword ? (
-                                      <FaEyeSlash size={20} />
-                                    ) : (
-                                      <FaEye size={20} />
-                                    )}
-                                  </button>
-                                </div>
-                <div>
-                  <a className="link link-hover">Forgot password?</a>
-                </div>
-                <button className="btn btn-neutral mt-4">Login</button>
-              </fieldset>
-              <button className="btn bg-white text-black border-[#e5e5e5]">
+                  {/* password */}
+                  <div className="relative w-full">
+                    <label className="label">Password</label>
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      className="input"
+                      placeholder="Enter your password"
+                      required
+                    />
+                    {/* Eye icon */}
+                    <button
+                      type="button"
+                      className="absolute top-[50%] right-3  cursor-pointer text-blue-100 z-40"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <FaEyeSlash size={20} />
+                      ) : (
+                        <FaEye size={20} />
+                      )}
+                    </button>
+                  </div>
+                  <div>
+                    <a className="link link-hover">Forgot password?</a>
+                  </div>
+                  <button className="btn btn-neutral mt-4">Login</button>
+                </fieldset>
+              </form>
+
+              <button
+                onClick={handleGoogleSignIn}
+                className="btn bg-white text-black border-[#e5e5e5]"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"
