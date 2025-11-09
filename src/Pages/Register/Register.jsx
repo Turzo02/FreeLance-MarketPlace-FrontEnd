@@ -89,6 +89,7 @@ const Register = () => {
 
   return (
     <div>
+      {/* Register page and Functionlaity Added */}
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left mb-5">
