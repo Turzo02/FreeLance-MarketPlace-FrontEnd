@@ -13,6 +13,7 @@ import AddAJob from "./Pages/AddAJob/AddAJob.jsx";
 import MyAcceptedTasks from "./Pages/MyAcceptedTasks/MyAcceptedTasks.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
 import AuthProvider from "./Context/AuthProvider.jsx";
+import JobDetails from "./Pages/JobDetails/JobDetails.jsx";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
     {
       path:"/myAceptedTasks",
       Component:MyAcceptedTasks
+    },
+    {
+      path:"/jobDetails/:id",
+      loader:({params})=>fetch(`http://localhost:5000/jobDetails/${params.id}`),
+      Component:JobDetails
     },
     {
       path:"*",
