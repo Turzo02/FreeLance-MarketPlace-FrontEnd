@@ -29,7 +29,7 @@ const AllJobs = () => {
               <span>Posted by: {job.postedBy}</span>
               <span>{new Date(job.postedAt).toLocaleDateString()}</span>
             </div>
-            <Link to={`/jobDetails/${job._id}`}
+            <Link to={`/jobs/${job._id}`}
             
             >
 

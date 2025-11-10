@@ -42,12 +42,12 @@ const router = createBrowserRouter([
       Component:AddAJob
     },
     {
-      path:"/myAceptedTasks",
+      path:"/acceptedTasks",
       Component:MyAcceptedTasks
     },
     {
-      path:"/jobDetails/:id",
-      loader:({params})=>fetch(`http://localhost:5000/jobDetails/${params.id}`),
+      path:"/jobs/:id",
+      loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`),
       Component:JobDetails
     },
     {

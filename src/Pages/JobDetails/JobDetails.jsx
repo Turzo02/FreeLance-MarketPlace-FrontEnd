@@ -1,8 +1,29 @@
-import React from "react";
-import { useLoaderData } from "react-router";
+import React, { use } from "react";
+import { Link, useLoaderData } from "react-router";
+import { AuthContext } from "../../Context/AuthContext";
 
 const JobDetails = () => {
   const data = useLoaderData();
+  const { user } = use(AuthContext);
+
+  const handleAcceptedJob = () => {
+    const acceptedUserData = {
+      acceptedUserMail: user?.email,
+    };
+ //patch method
+    fetch(`http://localhost:5000/jobs/${data._id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(acceptedUserData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+  });
+  };
+  
 
   return (
     <div>
@@ -53,12 +74,14 @@ const JobDetails = () => {
 
             {/* Contact Button */}
             <div className="mt-8">
-              <button
-                href={`mailto:${data.userEmail}`}
-                className="inline-block w-full sm:w-auto text-center bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+              <Link
+                to="/acceptedTasks"
+               
               >
-                Accept the job
-              </button>
+                <button  onClick={handleAcceptedJob} className="inline-block w-full sm:w-auto text-center bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                  Accept the job
+                </button>
+              </Link>
             </div>
           </div>
         </div>
