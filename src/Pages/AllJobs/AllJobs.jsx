@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { Suspense, use } from "react";
 const allJobsPromise = fetch("http://localhost:5000/jobs").then((res) =>
   res.json()
 );
