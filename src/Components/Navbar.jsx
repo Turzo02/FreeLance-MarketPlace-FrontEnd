@@ -33,6 +33,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/acceptedTasks"> My Accepted Tasks </NavLink>
       </li>
+      <li>
+        <NavLink to={`/myaddedjobs/${user?.email}`}> My Added Jobs </NavLink>
+      </li>
     </>
   );
 

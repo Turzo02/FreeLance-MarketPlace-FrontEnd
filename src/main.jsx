@@ -14,6 +14,8 @@ import MyAcceptedTasks from "./Pages/MyAcceptedTasks/MyAcceptedTasks.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
 import AuthProvider from "./Context/AuthProvider.jsx";
 import JobDetails from "./Pages/JobDetails/JobDetails.jsx";
+import MyAddedJobs from "./Pages/MyAddedJobs/MyAddedJobs.jsx";
+import UpdateJob from "./Pages/UpdateJob/UpdateJob.jsx";
 
 
 const router = createBrowserRouter([
@@ -49,6 +51,17 @@ const router = createBrowserRouter([
       path:"/jobs/:id",
       loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`),
       Component:JobDetails
+    },
+    {
+      path:"/myaddedjobs/:email",
+      loader:({params})=>fetch(`http://localhost:5000/jobs/user/${params.email}`),
+      Component:MyAddedJobs
+    },
+    {
+     path:"/updatejob/:id",
+     loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`),
+     Component:UpdateJob
+
     },
     {
       path:"*",
