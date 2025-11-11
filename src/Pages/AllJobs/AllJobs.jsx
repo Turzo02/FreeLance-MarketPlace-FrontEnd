@@ -1,13 +1,38 @@
-import React, { Suspense, use } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Link } from "react-router";
-const allJobsPromise = fetch("http://localhost:5000/jobs").then((res) =>
-  res.json()
-);
+
 const AllJobs = () => {
-  const allJobsData = use(allJobsPromise);
+  const [jobs, setJobs] = useState([]);
+  const [sortOrder, setSortOrder] = useState("descending");
+
+  useEffect(() => {
+    fetch("http://localhost:5000/jobs").then((res) => res.json()).then((data) => {
+      setJobs(data)
+    }).catch(error => console.log(error))
+  }, []);
+
+ const sortedJobs = [...jobs].sort((a, b) => {
+   if (sortOrder === "ascending") {
+     return  new Date(a.postedAt) - new Date(b.postedAt);
+   } else {
+     return  new Date(b.postedAt) - new Date(a.postedAt);
+   } 
+ })
   return (
-    <div className="section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-      {allJobsData.map((job) => (
+    <div className="section p-4 ">
+      <div className="flex justify-end mb-4">
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+          className="border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        >
+          <option value="descending">Sort by Newest</option>
+          <option value="ascending">Sort by Oldest</option>
+        </select>
+      </div>
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sortedJobs.map((job) => (
         <div
           key={job._id}
           className="bg-indigo-50   rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -41,6 +66,9 @@ const AllJobs = () => {
           </div>
         </div>
       ))}
+</div>
+
+
     </div>
   );
 };
