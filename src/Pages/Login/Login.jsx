@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthContext";
 import Swal from "sweetalert2";
@@ -10,6 +10,14 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
   const { googleSignIn, signInUser } = use(AuthContext);
   const navigate = useNavigate();
+
+  const location = useLocation();
+  let from = location.state || "/";
+
+  if (from.includes("undefined")) {
+    from = "/";
+  }
+
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
@@ -37,11 +45,11 @@ const Login = () => {
 
         Swal.fire({
           title: "Success",
-          text: "Logged in successfully from login page!",
+          text: "Logged in successfully ! Redirecting...",
           icon: "success",
           confirmButtonText: "OK",
         }).then(() => {
-          navigate("/");
+          navigate(`${from}`);
         });
       })
       .catch((error) => {
@@ -74,7 +82,7 @@ const Login = () => {
           icon: "success",
           confirmButtonText: "OK",
         }).then(() => {
-          navigate("/");
+          navigate(`${from}`);
         });
       })
       .catch((error) => {

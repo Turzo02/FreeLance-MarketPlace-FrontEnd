@@ -1,16 +1,19 @@
 import React, { use, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 
 const Register = () => {
+  const { googleSignIn, createUser } = use(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { googleSignIn, createUser } = use(AuthContext);
+  const location = useLocation();
+  const from = location.state || "/";
+ 
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -76,7 +79,7 @@ const Register = () => {
           "success"
         );
         setTimeout(() => {
-          navigate("/");
+          navigate(`${from}`);
         }, 2000);
         setSuccess(true);
       })
@@ -112,11 +115,11 @@ const Register = () => {
 
         Swal.fire({
           title: "Success",
-          text: "Logged in successfully! Redirecting to home page",
+          text: "Logged in successfully! Redirecting...",
           icon: "success",
           confirmButtonText: "OK",
         }).then(() => {
-          navigate("/");
+          navigate(`${from}`);
         });
       })
       .catch((error) => {
