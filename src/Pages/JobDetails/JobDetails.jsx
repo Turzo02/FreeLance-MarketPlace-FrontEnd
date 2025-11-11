@@ -11,7 +11,7 @@ const JobDetails = () => {
       acceptedUserMail: user?.email,
     };
  //patch method
-    fetch(`http://localhost:5000/jobs/${data._id}`, {
+    fetch(`http://localhost:5000/acceptedjobs/${data._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
