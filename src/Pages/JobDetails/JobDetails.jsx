@@ -28,7 +28,7 @@ const JobDetails = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen">
       <div className="max-w-5xl mx-auto px-4 py-10">
         <div className=" shadow-lg rounded-2xl overflow-hidden">
           {/* Cover Image */}
@@ -39,21 +39,21 @@ const JobDetails = () => {
           />
 
           {/* Content Section */}
-          <div className="p-6 sm:p-10">
+          <div className="p-6 sm:p-10 glassmorphic-card">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
+              <h1 className="text-2xl sm:text-3xl font-bold">
                 {data.title}
               </h1>
-              <span className="px-4 py-1 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full">
+              <span className="py-2 px-4 glassmorphic-card  text-sm font-semibold rounded-full">
                 {data.category}
               </span>
             </div>
 
             {/* Posted Info */}
-            <div className="mt-3 text-gray-500 text-sm">
+            <div className="mt-3 text-gray-400 text-sm">
               <p>
                 Posted by{" "}
-                <span className="font-medium text-gray-800">
+                <span className="font-medium text-gray-400">
                   {data.postedBy}
                 </span>
               </p>
@@ -68,10 +68,10 @@ const JobDetails = () => {
 
             {/* Summary */}
             <div className="mt-6">
-              <h2 className="text-lg font-semibold text-gray-800 mb-2">
+              <h2 className="text-lg font-semibold mb-2">
                 Job Summary
               </h2>
-              <p className="text-gray-700 leading-relaxed">{data.summary}</p>
+              <p className=" leading-relaxed">{data.summary}</p>
             </div>
 
             {/* Contact Button */}
@@ -88,7 +88,7 @@ const JobDetails = () => {
                 <Link to="/acceptedTasks">
                   <button
                     onClick={handleAcceptedJob}
-                    className="inline-block w-full sm:w-auto text-center bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+                    className="inline-block w-full sm:w-auto  cursor-pointer text-center bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-600 transition"
                   >
                     Accept the Job
                   </button>

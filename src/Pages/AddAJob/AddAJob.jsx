@@ -38,16 +38,15 @@ const AddAJob = () => {
     form.reset();
   };
   return (
-    <div className="min-h-screen  py-10 px-4">
+    <div className="min-h-screen ">
       <div className="max-w-3xl mx-auto  rounded-2xl shadow-md p-8">
-        <h2 className="text-3xl font-semibold text-indigo-600 mb-6 text-center">
-          Add a New Job
-        </h2>
+        <h1 className="text-center text-4xl lg:text-5xl my-8 font-bold text-indigo-500 ">Add a New Job</h1>
 
-        <form onSubmit={handleAddJob} className="space-y-5">
+
+        <form onSubmit={handleAddJob} className="space-y-5 glassmorphic-card py-10 px-12  rounded-2xl">
           {/* Title */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-gray-400 font-medium mb-2">
               Job Title
             </label>
             <input
@@ -60,7 +59,7 @@ const AddAJob = () => {
 
           {/* Posted By */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-gray-400 font-medium mb-2">
               Posted By
             </label>
             <input
@@ -77,7 +76,7 @@ const AddAJob = () => {
             <label className="block font-medium mb-2">Category</label>
             <select
               name="category"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border border-gray-400 rounded-lg bg-indigo-400 text-white"
             >
               <option>Select a category</option>
               <option>Web Development</option>
@@ -103,7 +102,7 @@ const AddAJob = () => {
 
           {/* Cover Image */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-gray-400 font-medium mb-2">
               Cover Image URL
             </label>
             <input
@@ -116,7 +115,7 @@ const AddAJob = () => {
 
           {/* User Email */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-gray-400 font-medium mb-2">
               User Email
             </label>
             <input

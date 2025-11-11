@@ -2,17 +2,17 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="bg-white">
+    <div className="">
       <div className="section px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
           {/* Left Content Section */}
           <div className="md:w-1/2 text-center md:text-left order-2 md:order-1">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight  tracking-tight">
               Reliable Freelance
               <br className="hidden sm:block" />
-              <span className="text-indigo-600">Marketplace</span>
+              <span className="text-indigo-500">Marketplace</span>
             </h1>
-            <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-xl mx-auto md:mx-0 text-center md:text-justify">
+            <p className="mt-6 text-lg sm:text-xl max-w-xl mx-auto md:mx-0 text-center md:text-justify">
               Find top-tier freelance talent or discover exciting new job
               opportunities with ease and confidence. Secure your next project
               or your next career step here.

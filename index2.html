@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FutureLance - All Jobs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3713ec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#131022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glassmorphic-card {
+            background: rgba(255, 255, 255, 0.05);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glassmorphic-bar {
+            background: rgba(30, 27, 50, 0.5);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#E0E0E0]">
+<div class="relative min-h-screen w-full overflow-x-hidden">
+<!-- Background decorative elements -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+<div class="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-indigo-900/40 rounded-full filter blur-3xl opacity-50"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-purple-900/30 rounded-full filter blur-3xl opacity-40"></div>
+</div>
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 py-3 glassmorphic-bar">
+<div class="max-w-[1280px] mx-auto flex items-center justify-between whitespace-nowrap">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M39.998 12.236C39.9944 12.2537 39.9875 12.2845 39.9748 12.3294C39.9436 12.4399 39.8949 12.5741 39.8346 12.7175C39.8168 12.7597 39.7989 12.8007 39.7813 12.8398C38.5103 13.7113 35.9788 14.9393 33.7095 15.4811C30.9875 16.131 27.6413 16.5217 24 16.5217C20.3587 16.5217 17.0125 16.131 14.2905 15.4811C12.0012 14.9346 9.44505 13.6897 8.18538 12.8168C8.17384 12.7925 8.16216 12.767 8.15052 12.7408C8.09919 12.6249 8.05721 12.5114 8.02977 12.411C8.00356 12.3152 8.00039 12.2667 8.00004 12.2612C8.00004 12.261 8 12.2607 8.00004 12.2612C8.00004 12.2359 8.0104 11.9233 8.68485 11.3686C9.34546 10.8254 10.4222 10.2469 11.9291 9.72276C14.9242 8.68098 19.1919 8 24 8C28.8081 8 33.0758 8.68098 36.0709 9.72276C37.5778 10.2469 38.6545 10.8254 39.3151 11.3686C39.9006 11.8501 39.9857 12.1489 39.998 12.236ZM4.95178 15.2312L21.4543 41.6973C22.6288 43.5809 25.3712 43.5809 26.5457 41.6973L43.0534 15.223C43.0709 15.1948 43.0878 15.1662 43.104 15.1371L41.3563 14.1648C43.104 15.1371 43.1038 15.1374 43.104 15.1371L43.1051 15.135L43.1065 15.1325L43.1101 15.1261L43.1199 15.1082C43.1276 15.094 43.1377 15.0754 43.1497 15.0527C43.1738 15.0075 43.2062 14.9455 43.244 14.8701C43.319 14.7208 43.4196 14.511 43.5217 14.2683C43.6901 13.8679 44 13.0689 44 12.2609C44 10.5573 43.003 9.22254 41.8558 8.2791C40.6947 7.32427 39.1354 6.55361 37.385 5.94477C33.8654 4.72057 29.133 4 24 4C18.867 4 14.1346 4.72057 10.615 5.94478C8.86463 6.55361 7.30529 7.32428 6.14419 8.27911C4.99695 9.22255 3.99999 10.5573 3.99999 12.2609C3.99999 13.1275 4.29264 13.9078 4.49321 14.3607C4.60375 14.6102 4.71348 14.8196 4.79687 14.9689C4.83898 15.0444 4.87547 15.1065 4.9035 15.1529C4.91754 15.1762 4.92954 15.1957 4.93916 15.2111L4.94662 15.223L4.95178 15.2312ZM35.9868 18.996L24 38.22L12.0131 18.996C12.4661 19.1391 12.9179 19.2658 13.3617 19.3718C16.4281 20.1039 20.0901 20.5217 24 20.5217C27.9099 20.5217 31.5719 20.1039 34.6383 19.3718C35.082 19.2658 35.5339 19.1391 35.9868 18.996Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">FutureLance</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center items-center gap-9">
+<a class="text-white/80 hover:text-white transition-colors text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-white text-sm font-bold leading-normal border-b-2 border-primary pb-1" href="#">All Jobs</a>
+<a class="text-white/80 hover:text-white transition-colors text-sm font-medium leading-normal" href="#">Messages</a>
+<a class="text-white/80 hover:text-white transition-colors text-sm font-medium leading-normal" href="#">Profile</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all">
+<span class="truncate">Post a Job</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-white/10 hover:bg-white/20 text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 transition-all">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDQaONfHPSWs5240vMfpGvsEplryZoPQ-s4SUjs0HtqFU5gc7_sR_geUau4azrFMVpF7MhRreBQNaZrQNRMClpPS41CBe5pS4CJ2M_2jeFakU8-FiZi9JO1NiPc4x0ugNOBTQFzw7kPL7qe0VKVolQpU-cN77cxtiaMSGpUhV70M-5ktkm6ka3HrrkbOcPTCUJI2mUrmVBM1xIpxkXcmEfzSZkF5hCzD2Utmz3WuPvPgp0y8Dv_ZANKJJfMsJBDNuzJUj9OW2UOqrc");'></div>
+</div>
+</div>
+</header>
+<main class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 py-8">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-8">
+<!-- PageHeading -->
+<div class="flex flex-col gap-3 text-center">
+<p class="text-white text-4xl md:text-5xl font-black leading-tight tracking-tighter">Find Your Next Mission</p>
+<p class="text-[#9090A0] text-base font-normal leading-normal max-w-xl mx-auto">Browse thousands of freelance opportunities in the tech industry, from AI engineering to metaverse architecture.</p>
+</div>
+<!-- SearchBar and Chips -->
+<div class="flex flex-col gap-4 sticky top-[76px] z-40 p-4 rounded-xl glassmorphic-bar">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#9090A0] flex bg-white/5 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-white/5 h-full placeholder:text-[#9090A0] px-4 text-base font-normal leading-normal" placeholder="Search for projects, skills, or clients..." value=""/>
+</div>
+</label>
+<div class="flex flex-wrap gap-3">
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-md bg-white/10 hover:bg-white/20 pl-4 pr-2 transition-all">
+<p class="text-white text-sm font-medium leading-normal">Category</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-md bg-white/10 hover:bg-white/20 pl-4 pr-2 transition-all">
+<p class="text-white text-sm font-medium leading-normal">Budget</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-md bg-white/10 hover:bg-white/20 pl-4 pr-2 transition-all">
+<p class="text-white text-sm font-medium leading-normal">Experience Level</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-md bg-white/10 hover:bg-white/20 pl-4 pr-2 transition-all">
+<p class="text-white text-sm font-medium leading-normal">Skills</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Job Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Job Card 1 -->
+<div class="flex flex-col rounded-xl overflow-hidden glassmorphic-card group transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Abstract AR navigation interface" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCq6kfSwudXPIkg38fqwBtxXhRxleVD597eunhuhFgL1mwhJCJLIaydnxHl969a-OTcMAbK0P6It6d3xCRApacdh_yF-tNZDaZL7jiP8UtHmj9AOhsDfJR_Q3WvKi-3z0Xox17M8qjbpT9yPivuI7x5WPMPpN7xO1cntuAr0yHbJCit9NNluOJ4mbelQtZ4XgOa8KriPoZanq2wbWgLNetF9015nwaSxFUFt9bKrckakRWpFkbLftnkAX7M5PiF6v-M3A_1MOzZ0DM");'></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<p class="text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-2 py-0.5 rounded-full self-start">UI/UX Design</p>
+<p class="text-white text-lg font-bold leading-tight">UI/UX for AR Navigation App</p>
+<div class="flex items-center gap-2">
+<img alt="CyberCorp Inc. logo" class="w-5 h-5 rounded-full bg-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-wPqwGtPNLnZ-mutaLkV4SIzDqed_7Y5-9dYOijEPhFI8b3rU4itrHTdkXtgsyJHcrgdB7_s3QBNO-w9mNQVPAjjBd4drwKaW475CcRjDb3pLKOxpWEPv9ThyMwIj5X94Z5WjxlQLlzPcjGM108uLMZa14aLTIk9hXMybGHbDMTMZRKhxgc1ToXDHV42kZZkli9ucYkloqLQI-qxL2nEE5QTz3Y1bE3M0ujxQoZsoCzoVo1eOtzbdu3nqPUI72JfviA0TOW8VSBU"/>
+<p class="text-[#9090A0] text-sm">CyberCorp Inc.</p>
+</div>
+<p class="text-[#9090A0] text-sm font-normal leading-normal line-clamp-3">Design the future of navigation with our augmented reality application. We are looking for a creative UI/UX designer to create an intuitive and visually stunning user interface.</p>
+<button class="mt-auto w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all group-hover:shadow-lg group-hover:shadow-indigo-500/40">View Details</button>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="flex flex-col rounded-xl overflow-hidden glassmorphic-card group transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Cryptocurrency dashboard chart" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2JGUZXhWzKet9Xb-iTpOZU75EbPHczyY46l11snfN4yTuQE_3_r31upk4XnhJHz09gnU6viS4O6pApWbURNitw55g7vYruTDafQwnHmta068j3TmSz5f5wws8_k0y9v2K2-wKHpB7eYBOkLtHydJ5uUvcv2LSfjZTw1oRSb_uKLotWesbYCjAiiCQpxPJoF7R_9v9AuxgDXR6dC0cDzdTcPZzHf_On9-GZU14IFO3ociSt2QMsZX2tiawJPlLTWOiKSySpmK4edo");'></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<p class="text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-2 py-0.5 rounded-full self-start">Frontend Dev</p>
+<p class="text-white text-lg font-bold leading-tight">Senior Frontend Dev for Crypto Dashboard</p>
+<div class="flex items-center gap-2">
+<img alt="Nexus Financial logo" class="w-5 h-5 rounded-full bg-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIN4Gevkx9Mur1FrFhiDoe4nIJVvicBePheDoBkdjWruAdn_0sHpkTWtLoTNxxVb0a-qngUphotl3PRhMm6L9jAITX9q80yzkoqf-ABhIRQax-gP4xz2EmQCMwPmRyeFalL-PlnXX_zztQBwnnVBtpnrxtuwxhYVF4egLfgaD-BMw5KK4u7moRlBJaj7Pps7YFfyiarjM2ukqAeEGmMEz6OBLkbsmBECuR-YCVJiui4RQiVAgXyF-yetZW1e9IaKmHVEV4ywccOYM"/>
+<p class="text-[#9090A0] text-sm">Nexus Financial</p>
+</div>
+<p class="text-[#9090A0] text-sm font-normal leading-normal line-clamp-3">Join our fast-paced team to build the next generation of financial tools. We need an experienced developer proficient in React, D3.js, and real-time data streaming.</p>
+<button class="mt-auto w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all group-hover:shadow-lg group-hover:shadow-indigo-500/40">View Details</button>
+</div>
+</div>
+<!-- Job Card 3 -->
+<div class="flex flex-col rounded-xl overflow-hidden glassmorphic-card group transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Sci-fi 3D model of a spaceship" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCuPh2OPgQ9Hiya6rHuFpFDe8A9Hq3iw1VbNSx8miLyR_s-5EVm0BvVgAe8_q939V3sHBX_S3eWRdYNP-5CPaXrxg9zN0NaODdLss83LyAI9jn9ADdReiZuFcyhazRmZFggJBkdxoWjwP0u5SqyiWbRdhHPVsgsuUS4tUROa-DxHxEXr5HeYUUb58dyTSnpv1Lmi_Gc-FJzz7mlsDxBF38C1Y9hAfqIOTz-bffo2TW-gr9U60oQ-MAaQ3JwMPjza5YExg2Leuo8j9w");'></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<p class="text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-2 py-0.5 rounded-full self-start">3D Modeling</p>
+<p class="text-white text-lg font-bold leading-tight">3D Modeler for Sci-Fi Game Assets</p>
+<div class="flex items-center gap-2">
+<img alt="Galaxy Games logo" class="w-5 h-5 rounded-full bg-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0DHgbrv-wqKOL1nFmzYu-kZPzRNHYscxFnnj_BACzbrYY3nVAySr4gmFxkDtXaVW5u5isDVfLQjv80A_KdCJiq2YppE4-4hWX2SclNMvn_gwAi3RA_SvUWO5LiTxUpHfDkKyOvRca3wHjRexjNuHBzzHAhS4IohYPtfgDJNjSVyioAsv5-iO0fr6um5_-S8Nv7brJh4M092VlJFboa5SZwd1VbjvykpvM6Ax1Vy5PNppw8qXBljQoerVOm4Jwtn6uoEhO07_CGIU"/>
+<p class="text-[#9090A0] text-sm">Galaxy Games</p>
+</div>
+<p class="text-[#9090A0] text-sm font-normal leading-normal line-clamp-3">Create high-quality, game-ready 3D models of futuristic vehicles, characters, and environments for our upcoming AAA sci-fi title. Must have strong skills in Blender or Maya.</p>
+<button class="mt-auto w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all group-hover:shadow-lg group-hover:shadow-indigo-500/40">View Details</button>
+</div>
+</div>
+<!-- Job Card 4 -->
+<div class="flex flex-col rounded-xl overflow-hidden glassmorphic-card group transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Abstract image of planets and stars" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVj07fNMYKuPKQb4clrtItmqGLj_xsIrGZIyUbtlcXGtFxcSNp177j-aGz3Io4d8v0q18ouL12zRDz-8ZF8Io_3hB85qCrVX3z-KlPjfhQP4lL7_RjSu3ot2FrvxwPdfS_le9R31Lo2staakXbKofR5IqidLvfPiunNJqTBh7mtCRV6cQ_8ctY4AgVpEPkLKOQM3GuqPbUKrTfUlihi7VbYSIvUOAGAJjpXglizKBIpTTtdMnydRmaMaSb9qAUph7vCVdh1ZPpr6s");'></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<p class="text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-2 py-0.5 rounded-full self-start">Branding</p>
+<p class="text-white text-lg font-bold leading-tight">Brand Strategist for SpaceTech Startup</p>
+<div class="flex items-center gap-2">
+<img alt="Orion Ventures logo" class="w-5 h-5 rounded-full bg-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVGpw5HuXbA2v3vdmknM6Bf9GKpd4q60CrFsuHJccDBnTU6DYVbZxV1hkipXj88Fi5Uu2Wm3eIeWdgIEUSa9glt9RA7Cea43H4_fifm2BpNwC5U_kTncBG4oJSKOGDpZCuWP9RvjL2x--2JZLNgdMEM9R8s3khzmgRE0YJnfh6GtGYHc3dUEXkmscAOv4d3MJHeM9mp5x-NzfRGi8o0gWb3XoWrEDSNMY-QZ_1bZz1AzqhXtROgfZR9x1d40OMmZf2NhGePBhwey0"/>
+<p class="text-[#9090A0] text-sm">Orion Ventures</p>
+</div>
+<p class="text-[#9090A0] text-sm font-normal leading-normal line-clamp-3">Develop a powerful brand identity for a disruptive startup in the space technology sector. This role involves market research, logo design, and creating brand guidelines from scratch.</p>
+<button class="mt-auto w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all group-hover:shadow-lg group-hover:shadow-indigo-500/40">View Details</button>
+</div>
+</div>
+<!-- Job Card 5 -->
+<div class="flex flex-col rounded-xl overflow-hidden glassmorphic-card group transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Futuristic neural interface graphic" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDy4b996GQybpCcrHPYCRH2wNEEgQ6foD7ZhkLwc5npPB1qzngB-6kFC3Mwo1p6XSVdZ1FtrURMumNjVFQa5adsgZSC5DCC-nl1OflpfMATFlLcO3WWNqMoOIf8Ptup8dJ7Hx7SogGHnc88OfnFlmchmJe_qzDfG7uwkIYf0_Ky7SyEQkGrqCp_5Y15ygkXPwrvTaQ95N4hjYq1hQw2i8Yw-nqAVCy2zD75YUgxmrMzIdLgx-C_ZAE-kbrtw5V2DhCDFz8Kuskb8WY");'></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<p class="text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-2 py-0.5 rounded-full self-start">UI/UX Design</p>
+<p class="text-white text-lg font-bold leading-tight">Neural Interface UI/UX Designer</p>
+<div class="flex items-center gap-2">
+<img alt="MindWave Tech logo" class="w-5 h-5 rounded-full bg-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAd0yvRosvW1Mo90XwHzFIG61tHL4pHfvw4iDJASIzC6DeBAQftPC1ZtOtd1U7EDAx1EvckJY8UATRf2R1UTRVj4jOnb8o4btsBaxQtVuQ2wRhW3GOo9CJn1OCwVFzah4H9LYiUIR44KO7cAJaUmTrNI6ukBJZdIwmBKLozu0mlQYB4XTnJLFHDfksA5JcPqjk501nyv9ursbiQKG_VUVYHiVKHvFF88AT870PwPzNhNCZd5PgIYBMz8EX3POwltTSXgALHwQZEYI"/>
+<p class="text-[#9090A0] text-sm">MindWave Tech</p>
+</div>
+<p class="text-[#9090A0] text-sm font-normal leading-normal line-clamp-3">Pioneer the user experience for a brain-computer interface. This role requires a deep understanding of user psychology, accessibility, and minimalist design principles.</p>
+<button class="mt-auto w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all group-hover:shadow-lg group-hover:shadow-indigo-500/40">View Details</button>
+</div>
+</div>
+<!-- Job Card 6 -->
+<div class="flex flex-col rounded-xl overflow-hidden glassmorphic-card group transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Virtual reality world with neon lights" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAdtJTo9AnFydtLCRfsvLesD8C4y9Shv9CGEJkATqWpEveJfilRNuwecH6q_59cJFXtch8Y3AiwmklIaPAnvKB5zyM9YwfY6VSel_6p14_FQ0V2Bkp3VelgIdSrRfBB1rAMaaYHopzbKzN463JS7cgAnNvpcw533CkonrrK-O9YWbEeBYkjxYuZI7yeyEewx0IUvUtja8gwxyFH24kgpg2kq5TSIQBPXhVes4Z0JSTUYpZJgw-5xifYW2G2f6zc_B9dMSedhGDGIE");'></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<p class="text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-2 py-0.5 rounded-full self-start">Metaverse</p>
+<p class="text-white text-lg font-bold leading-tight">Metaverse Architect for VR Events</p>
+<div class="flex items-center gap-2">
+<img alt="VirtuRealms logo" class="w-5 h-5 rounded-full bg-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD2p77O0Dm9b3XA2ijN3FOPzdyrknd7AmTXEMCEujD1QcdA79Qwo1Yrov68IuFxwpYJbTh9THjRkE7fLnYARFbcw37Bg7cGCtbrAEQvXchRxHAECLowRr_e9EPSHwwPMzsTfnboGUHhhcIWe5g0alyv0FA72IzEE3CCDrRxw3JoZai6CqEr2FxNVo_bqJViRPtOk_OVdjM1LU_qMDBqfkERbyefSFw3xm0z68TFfkeAdO643_9B2nbkcRNZERwo8W-eNUVl3e-rHU"/>
+<p class="text-[#9090A0] text-sm">VirtuRealms</p>
+</div>
+<p class="text-[#9090A0] text-sm font-normal leading-normal line-clamp-3">Design and construct immersive virtual environments for large-scale online events and conferences. Experience with Unity, Unreal Engine, or similar platforms is a must.</p>
+<button class="mt-auto w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all group-hover:shadow-lg group-hover:shadow-indigo-500/40">View Details</button>
+</div>
+</div>
+<!-- Job Card 7 -->
+<div class="flex flex-col rounded-xl overflow-hidden glassmorphic-card group transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Abstract artificial intelligence visualization" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDF8ph4XlXtGjJ6DFSHBp2hodIznKz3lzocJdjYIJclVPWmHknrkdpU_NwfM7gz5xUPkuec0k8uXxg3sOfMLTHwWPfy4KbnxCGOxEoHuYcEEiXGDvBfkwO5_K_iddeQKKD0xa7eww1K_fsJ6r3YB9OM4R3wlnSXA7vE4SLt2s-1fgOo5Q1ElUP5FBo6iDWR2Zbfoxf-al0fQRdcJEWj36YRVSTao_CBRkhrseQusuQtJOf-ejhkKO-bjEjf_DwNiwnP0JxXdFcdJtY");'></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<p class="text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-2 py-0.5 rounded-full self-start">AI</p>
+<p class="text-white text-lg font-bold leading-tight">AI Prompt Engineer for Code Generation</p>
+<div class="flex items-center gap-2">
+<img alt="CodeSynth AI logo" class="w-5 h-5 rounded-full bg-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JnrI3o-nM-8ZS89lnExijXPEk6ue0aue3lvA6yWHIZLiJzRgVprcG8_zzOnhFbXHhspiS4ZzknD3FbxxPqBRclPhNtKRklRhvBleRmd3d9fqNnEHkZgAfEtjItOfSh8aYJ8iTXJsn_Pv5kn_xRmdH5_ynPV4se6kNwZIAt6XAhdw2rEPBDXpgv9aH072lGAjhbldc1mFnc4-r8PTHJRQsdFw6-pdIlcLGniSOWfRaYwTcYiWaa-5mpYFfn29IuuvgH760dG4JZg"/>
+<p class="text-[#9090A0] text-sm">CodeSynth AI</p>
+</div>
+<p class="text-[#9090A0] text-sm font-normal leading-normal line-clamp-3">Craft and refine complex prompts for a large language model to optimize AI-driven code generation and automation tools. A background in software development is required.</p>
+<button class="mt-auto w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all group-hover:shadow-lg group-hover:shadow-indigo-500/40">View Details</button>
+</div>
+</div>
+<!-- Job Card 8 -->
+<div class="flex flex-col rounded-xl overflow-hidden glassmorphic-card group transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/20">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Digital lock and cybersecurity graphic" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6FaHZtcrWLHLJ-fWfmv6KgePw0SOpInu5wusIR0_d_xYUFo28YwPA4oy70qha5SwUCg5FsbHZheUAKGl9WN4ZjAkG4qHBNpJUl2IBxJfzuFR_uceyutAMMug3oPfjAKlljvKN3quWPbqsao4gnChyGW5U7bI42B71Fz-l6Af2kF6IuJ97nCW-koWrNwzaTqNj5CYgFcNbBDjGABfbx7eh5LqGQSLgY4CwTtaYz5L5LY6lCoKO5Fu9_1qNP5btaJVOOKpd8F_wYeU");'></div>
+<div class="p-4 flex flex-col gap-3 flex-grow">
+<p class="text-sm font-medium bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-2 py-0.5 rounded-full self-start">Cybersecurity</p>
+<p class="text-white text-lg font-bold leading-tight">Lead Cybersecurity Analyst</p>
+<div class="flex items-center gap-2">
+<img alt="SecuriCore logo" class="w-5 h-5 rounded-full bg-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNwysfc6-ITYHVUO8bdU9bCvLHMlwxlLuVKS15Vg7nENut9uG7chYzy3TXbd5T0_jQFleYrG1g7-V7N1piJhaufO4y1Fx8S1vyEhFVolNSKFdTaowzIQxGuJiL-guTKBOoOK8uwwUf-00pOcSSx2raHnJ9PspEf8skagxuUT7zy8EkFDVY5vdWfMkL3y19Ppied9vxFv4QoDdfsBZMzz5aAnVFNb-HKrrVC_jjKVAKkhStsatvZFqUByUFK-LplBA4Gs1q4LJynSA"/>
+<p class="text-[#9090A0] text-sm">SecuriCore</p>
+</div>
+<p class="text-[#9090A0] text-sm font-normal leading-normal line-clamp-3">Protect our digital assets from advanced threats. This senior role involves threat modeling, penetration testing, and developing security protocols for our cloud infrastructure.</p>
+<button class="mt-auto w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all group-hover:shadow-lg group-hover:shadow-indigo-500/40">View Details</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center pt-8">
+<button class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white/10 hover:bg-white/20 text-white text-base font-bold leading-normal transition-all">Load More</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

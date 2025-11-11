@@ -1,40 +1,45 @@
 import React from "react";
 import { NavLink } from "react-router";
+import "./NotFound.css";
+
 
 const NotFound = () => {
+
   return (
-    <div className="bg-white">
+    <div>
       {/* Not Found Page Added */}
-      <div className="max-w-[1440px] mx-auto text-center py-10 px-6 sm:px-10">
-        <div className="mb-8">
-          <img
-            src="https://i.ibb.co.com/QvQrhm2Q/404.png"
-            alt="Illustration of a missing page"
-            className="rounded-lg  w-full h-auto mx-auto max-w-sm sm:max-w-md"
-          />
+          
+      <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden p-4 bg-background-light dark:bg-background-dark font-display">
+        {/* Background */}
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10"
+          
+        ></div>
+
+        {/* Main Content */}
+        <div className="relative z-10 flex w-full max-w-lg flex-col items-center">
+          <div className="glassmorphic-card w-full rounded-xl p-8 text-center shadow-lg md:p-12">
+            <h1 className="text-7xl font-bold md:text-8xl">404</h1>
+
+            <div className="mt-4 flex flex-col items-center gap-2">
+              <p className="text-xl font-bold leading-tight tracking-tight  md:text-2xl">
+                Lost in Cyberspace?
+              </p>
+              <p className="max-w-xs text-sm font-normal leading-normal text-[#9CA3AF]">
+                The page you are looking for doesn't exist or has been moved.
+                Let's get you back on track.
+              </p>
+            </div>
+            <NavLink to="/"
+              className="mt-8 inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-transform duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/30"
+            >
+              <span className="truncate">Go Back Home</span>
+            </NavLink>
+          </div>
         </div>
+      </div> 
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
-          Oops! Page Not Found
-        </h1>
 
-        <p className="text-lg text-gray-500 mb-8 max-w-md mx-auto">
-          It seems the page you were looking for has moved, been deleted, or
-          never existed.
-        </p>
-
-        <button
-          className="inline-flex items-center justify-center px-6 py-3 border border-transparent 
-                  text-base font-medium rounded-xl shadow-lg text-white bg-indigo-600 
-                  hover:bg-indigo-700 transition duration-300 ease-in-out"
-        >
-          <NavLink to="/">Go to Homepage</NavLink>
-        </button>
-
-        <p className="mt-6 text-sm text-gray-400">
-          Need help? Try contacting support.
-        </p>
-      </div>
     </div>
   );
 };

@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const navigate = useNavigate();
-
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
@@ -59,7 +58,7 @@ const Navbar = () => {
 
   return (
 
-<div className="bg-base-100">
+<div className="glassmorphic-card sticky top-0 z-50 ">
   <div className="navbar section">
     <div className="navbar-start">
       {/* Drop down part for small screens */}
@@ -127,16 +126,16 @@ const Navbar = () => {
 
       {/* Login / Logout buttons always visible */}
       {user ? (
-        <button onClick={handleSignOut} className="btn">
+        <button onClick={handleSignOut} className="btn bg-indigo-500 text-white border-none">
           Logout
         </button>
       ) : (
         <>
           <Link to="/login">
-            <button className="btn">Login</button>
+            <button className="btn  bg-indigo-500 text-white  border-none">Login</button>
           </Link>
           <Link to="/register">
-            <button className="btn">Register</button>
+            <button className="btn bg-indigo-500 text-white border-none ">Register</button>
           </Link>
         </>
       )}
