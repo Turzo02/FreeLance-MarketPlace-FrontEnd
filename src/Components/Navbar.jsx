@@ -100,7 +100,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <a className="btn btn-ghost text-xl">⚓Freelance Marketplace</a>
+      <a href="/" className="btn btn-ghost text-xl font-bold text-indigo-500">⚓FM</a>
     </div>
 
     {/* Center links for large screens */}

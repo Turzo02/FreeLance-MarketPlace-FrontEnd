@@ -1,11 +1,13 @@
 import React, { use } from "react";
 import JobCard from "../../Components/JobCard";
 
-const LatestJobs = ({latestJobsPromise}) => {
-    const LatestJobsData = use(latestJobsPromise)
+const LatestJobs = ({ latestJobsPromise }) => {
+  const LatestJobsData = use(latestJobsPromise);
   return (
-    <div >
-      <h1 className="text-center text-4xl lg:text-5xl my-8 font-bold text-indigo-500 ">Latest Jobs</h1>
+    <div>
+      <h1 className="text-center text-4xl lg:text-5xl my-8 font-bold text-indigo-500 ">
+        Latest Jobs
+      </h1>
       <JobCard LatestJobsData={LatestJobsData}></JobCard>
     </div>
   );

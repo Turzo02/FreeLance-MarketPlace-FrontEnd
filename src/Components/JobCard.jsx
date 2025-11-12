@@ -1,12 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 
 const JobCard = ({ LatestJobsData }) => {
+    const naviagte= useNavigate()
+    const handleNavigate = () => {
+        naviagte(`/alljobs`)
+    }
     return (
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 p-4">
             {
                 LatestJobsData.map(job => (
-                    <div 
+                    <div onClick={handleNavigate}
                         key={job._id} 
                         className="
                         border border-gray-200
@@ -14,20 +19,21 @@ const JobCard = ({ LatestJobsData }) => {
                     >
                         <img 
                             className="w-full h-48 object-cover rounded-t-xl" 
-                            src="https://i.ibb.co.com/QvQrhm2Q/404.png"
+                            src={job.coverImage}
+                             onError={(e) => { e.target.src = "https://i.ibb.co.com/GX24tSY/all-sample.png"; }} 
                             alt="Job cover" 
                         />
                         <div className="p-6">
-                            <div className="text-sm font-semibold uppercase tracking-wide mb-2">
+                            <div className="text-sm font-semibold uppercase tracking-wide mb-2 text-indigo-400">
                                 {job.category}
                             </div>
-                            <h3 className="text-xl font-bold mb-2">
+                            <h3 className="text-xl font-bold mb-2 ">
                                 {job.title}
                             </h3>
-                            <p className="mb-4 text-gray-400">
+                            <p className="mb-4 text-gray-400 line-clamp-2">
                                 {job.summary}
                             </p>
-                            <div className="flex justify-between items-center text-sm text-gray-400 ">
+                            <div className="flex justify-between items-center text-sm  ">
                                 <span>Posted by: {job.postedBy}</span>
                                 <span>{new Date(job.postedAt).toLocaleDateString()}</span>
                             </div>

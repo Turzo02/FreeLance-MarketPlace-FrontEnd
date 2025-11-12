@@ -33,7 +33,8 @@ const JobDetails = () => {
         <div className=" shadow-lg rounded-2xl overflow-hidden">
           {/* Cover Image */}
           <img
-            src="https://i.ibb.co.com/QvQrhm2Q/404.png"
+            src={data.coverImage}
+             onError={(e) => { e.target.src = "https://i.ibb.co.com/GX24tSY/all-sample.png"; }} 
             alt={data.title}
             className="w-full h-60 sm:h-80 object-cover"
           />

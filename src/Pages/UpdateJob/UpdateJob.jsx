@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import { Navigate, useLoaderData, useNavigate } from "react-router";
 import SplitText from "../../Components/ReactBits/SplitText";
+import Swal from "sweetalert2";
 const UpdateJob = () => {
   const data = useLoaderData();
   const [userdata, setUserData] = useState(data);
+  const navigate = useNavigate();
   const { category, coverImage, postedBy, summary, title, userEmail, _id } =
     userdata;
   console.log(category, coverImage, postedBy, summary, title, userEmail, _id);
@@ -28,39 +30,50 @@ const UpdateJob = () => {
       userEmail,
     };
 
-    fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newJobData),
-    })
+    fetch(
+      `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${_id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newJobData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+              Swal.fire({
+        title: "Success!",
+        text: "Your job details have been updated.",
+        icon: "success",
+        confirmButtonText: "OK",
+      }).then(() => {
+        navigate(`/myaddedjobs/${userEmail}`); 
       });
+      }).catch((err) => console.log(err));
     form.reset();
     setUserData(newJobData);
   };
+
   return (
     <div className="section min-h-screen">
       <div className="max-w-3xl mx-auto rounded-2xl shadow-lg glassmorphic-card p-10 my-8">
         <h1 className="text-center text-4xl lg:text-5xl mb-8 font-bold text-indigo-500 ">
-          
-                       <SplitText
-                text="Update Your Job"
-                className=""
-                delay={100}
-                duration={0.6}
-                ease="power3.out"
-                splitType="chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-                rootMargin="-100px"
-                textAlign="center"
-              />
-                 </h1>
+          <SplitText
+            text="Update Your Job"
+            className=""
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
+        </h1>
 
         <form
           onSubmit={handleUpdate}
@@ -108,11 +121,16 @@ const UpdateJob = () => {
               <option value="" disabled hidden>
                 Select a category
               </option>
-              <option>Web Development</option>
+              <option>Animation & 3D</option>
+              <option>App Development</option>
+              <option>Content Writing</option>
               <option>Digital Marketing</option>
               <option>Graphics Design</option>
-              <option>Content Writing</option>
-              <option>App Development</option>
+              <option>SEO Optimization</option>
+              <option>Social Media Management</option>
+              <option>Video Editing</option>
+              <option>Voiceover & Audio</option>
+              <option>Web Development</option>
             </select>
           </div>
 

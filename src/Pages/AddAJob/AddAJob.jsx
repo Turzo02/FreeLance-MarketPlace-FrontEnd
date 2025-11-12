@@ -1,8 +1,12 @@
 import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import SplitText from "../../Components/ReactBits/SplitText";
+import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
+import { tr } from "motion/react-client";
 const AddAJob = () => {
   const { user } = use(AuthContext);
+  const navigate = useNavigate();
   const handleAddJob = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -33,33 +37,42 @@ const AddAJob = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        Swal.fire({
+          title: "Success!",
+          text: "Your job has been added. Click the button to redirect...",
+          icon: "success",
+          showConfirmButton: tr,
+        }).then(() => {
+            navigate(`/myaddedjobs/${user?.email}`);
+        })
       });
 
     form.reset();
   };
+
   return (
     <div className="min-h-screen selection ">
-
       <div className="max-w-3xl mx-auto my-6  rounded-2xl shadow-lg glassmorphic-card p-8">
         <h1 className="text-center text-4xl lg:text-5xl mb-8 font-extrabold text-indigo-500 ">
-          
-                       <SplitText
-                text="Add a New Job"
-                className=""
-                delay={100}
-                duration={0.6}
-                ease="power3.out"
-                splitType="chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-                rootMargin="-100px"
-                textAlign="center"
-              />
-          </h1>
+          <SplitText
+            text="Add a New Job"
+            className=""
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
+        </h1>
 
-
-        <form onSubmit={handleAddJob} className="space-y-5 glassmorphic-card py-10 px-12  rounded-2xl">
+        <form
+          onSubmit={handleAddJob}
+          className="space-y-5 glassmorphic-card py-10 px-12  rounded-2xl"
+        >
           {/* Title */}
           <div>
             <label className="block text-gray-400 font-medium mb-2">
@@ -98,12 +111,20 @@ const AddAJob = () => {
               defaultValue=""
               className="w-full px-4 py-2 border border-gray-400 rounded-lg bg-indigo-400 text-white"
             >
-              <option value="" disabled hidden >Select a category</option>
-              <option>Web Development</option>
+              <option value="" disabled hidden>
+                Select a category
+              </option>
+
+              <option>Animation & 3D</option>
+              <option>App Development</option>
+              <option>Content Writing</option>
               <option>Digital Marketing</option>
               <option>Graphics Design</option>
-              <option>Content Writing</option>
-              <option>App Development</option>
+              <option>SEO Optimization</option>
+              <option>Social Media Management</option>
+              <option>Video Editing</option>
+              <option>Voiceover & Audio</option>
+              <option>Web Development</option>
             </select>
           </div>
 
@@ -161,7 +182,6 @@ const AddAJob = () => {
           </div>
         </form>
       </div>
-      
     </div>
   );
 };

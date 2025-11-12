@@ -1,18 +1,23 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Link } from "react-router";
 import SplitText from "../../Components/ReactBits/SplitText";
-
+import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [sortOrder, setSortOrder] = useState("descending");
+  const [loading,setLoading] = useState(true)
 
   useEffect(() => {
     fetch("https://freelance-marketplace-api-server-smoky.vercel.app/jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
+        setLoading(false)
       })
-      .catch((error) => console.log(error));
+      .catch((error) =>{
+        console.log(error)
+        setLoading(false)
+      } )
   }, []);
 
   const sortedJobs = [...jobs].sort((a, b) => {
@@ -53,8 +58,11 @@ const AllJobs = () => {
           <option value="ascending">Sort by Oldest</option>
         </select>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      {
+        loading? (
+          <LoadingSpinner></LoadingSpinner>
+        ):(
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {sortedJobs.map((job) => (
 
           <div
@@ -63,16 +71,17 @@ const AllJobs = () => {
           >
             <img
               className="w-full h-48 object-cover "
-              src="https://i.ibb.co.com/QvQrhm2Q/404.png"
+              src={job.coverImage}
               alt="Job cover"
+               onError={(e) => { e.target.src = "https://i.ibb.co.com/GX24tSY/all-sample.png"; }} 
             />
             <div className="p-6">
-              <div className="text-sm font-semibold = uppercase tracking-wide mb-2">
+              <div className="text-sm font-semibold  uppercase text-indigo-400 mb-2">
                 {job.category}
               </div>
               <h3 className="text-xl font-bold = mb-2">{job.title}</h3>
-              <p className="text-gray-400 mb-4">{job.summary}</p>
-              <div className="flex justify-between items-center text-sm text-gray-400">
+              <p className="text-gray-400 mb-4 line-clamp-2">{job.summary}</p>
+              <div className="flex justify-between items-center text-sm ">
                 <span>Posted by: {job.postedBy}</span>
                 <span>{new Date(job.postedAt).toLocaleDateString()}</span>
               </div>
@@ -93,6 +102,10 @@ const AllJobs = () => {
 
         ))}
       </div>
+        )
+      }
+
+    
     </div>
   );
 };
