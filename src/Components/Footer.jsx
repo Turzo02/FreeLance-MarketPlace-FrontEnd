@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className=" glassmorphic-card shadow-sm">
+    <div className="glassmorphic-card  shadow-2xl">
       {/* Foooter Done */}
-      <footer className="footer sm:footer-horizontal  items-center p-4 section">
+      <footer className=" section footer sm:footer-horizontal  items-center p-4 ">
         <aside className="grid-flow-col items-center">
           <svg
             width="36"
@@ -57,6 +57,7 @@ const Footer = () => {
           </a>
         </nav>
       </footer>
+
     </div>
   );
 };

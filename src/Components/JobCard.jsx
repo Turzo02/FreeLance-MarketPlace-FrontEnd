@@ -10,7 +10,7 @@ const JobCard = ({ LatestJobsData }) => {
                         key={job._id} 
                         className="
                         border border-gray-200
-                        glassmorphic-card rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                        glassmorphic-card rounded-xl overflow-hidden  shadow-lg hover:shadow-xl transition-shadow duration-300"
                     >
                         <img 
                             className="w-full h-48 object-cover rounded-t-xl" 

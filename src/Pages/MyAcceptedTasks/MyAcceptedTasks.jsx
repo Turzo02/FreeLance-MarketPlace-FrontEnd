@@ -1,6 +1,7 @@
 import React, { useEffect, useState, use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
-
+import { CircleCheckBig, MessageCircleX } from "lucide-react";
+import SplitText from "../../Components/ReactBits/SplitText";
 const MyAcceptedTasks = () => {
   const { user } = use(AuthContext);
   const [tasks, setTasks] = useState([]);
@@ -34,20 +35,36 @@ const MyAcceptedTasks = () => {
 
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen section ">
      
-        <h1 className="text-center text-4xl lg:text-5xl my-4 font-bold text-indigo-500 ">My Accepted Tasks</h1>
+        <h1 className="text-center text-4xl lg:text-5xl my-4 font-bold text-indigo-500 ">
+          
+                       <SplitText
+                text="Your Accepted Tasks"
+                className=""
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+              />
+          
+          </h1>
 
       {tasks.length === 0 ? (
         <p className="text-center text-gray-400">
           You have no accepted tasks yet.
         </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 py-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-6 px-2">
           {tasks.map((task) => (
             <div
               key={task._id}
-              className=" glassmorphic-card shadow-md rounded-xl overflow-hidden flex flex-col justify-between"
+              className=" glassmorphic-card rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <img
                 src={task.coverImage || "https://i.ibb.co/QvQrhm2Q/404.png"}
@@ -71,14 +88,15 @@ const MyAcceptedTasks = () => {
                 <div className="mt-4 flex gap-3">
                   <button
                     onClick={() => handleCancel(task._id)}
-                    className="flex-1 bg-indigo-500 text-white py-2 rounded-lg hover:bg-green-600 transition cursor-pointer"
+                    className="flex-1 rounded-lg flex items-center justify-center gap-3  cursor-pointer bg-green-500 text-white py-2 hover:bg-green-600 transition"
                   >
-                    Done
+                   <CircleCheckBig />       Done
                   </button>
+
                   <button
                     onClick={() => handleCancel(task._id)}
-                    className="flex-1 bg-orange-400 text-white py-2 rounded-lg hover:bg-red-500 transition cursor-pointer"
-                  >
+                    className="flex-1 flex items-center justify-center gap-3 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition cursor-pointer"
+                  >    <MessageCircleX />  
                      Cancel
                   </button>
                 </div>

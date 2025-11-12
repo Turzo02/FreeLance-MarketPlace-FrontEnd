@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Link } from "react-router";
-
+import SplitText from "../../Components/ReactBits/SplitText";
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [sortOrder, setSortOrder] = useState("descending");
@@ -23,7 +23,25 @@ const AllJobs = () => {
   });
   return (
     <div className="section p-4 ">
-      <h2 className="glassmorphic-card text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight  tracking-tight text-center my-7 py-6 text-indigo-500"> Find Your Next Misson</h2>
+      <h2 className="glassmorphic-card text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight  tracking-tight text-center my-7 py-6 text-indigo-500">
+        
+         
+                     <SplitText
+                text="Find Your Next Job"
+                className=""
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+              />
+         
+         
+         </h2>
       <div className="flex justify-end mb-4">
         <select
           value={sortOrder}
@@ -39,7 +57,7 @@ const AllJobs = () => {
         {sortedJobs.map((job) => (
           <div
             key={job._id}
-            className="glassmorphic-card rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            className="glassmorphic-card rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 "
           >
             <img
               className="w-full h-48 object-cover "

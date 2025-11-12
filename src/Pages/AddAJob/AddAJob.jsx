@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
-
+import SplitText from "../../Components/ReactBits/SplitText";
 const AddAJob = () => {
   const { user } = use(AuthContext);
   const handleAddJob = (event) => {
@@ -38,9 +38,25 @@ const AddAJob = () => {
     form.reset();
   };
   return (
-    <div className="min-h-screen ">
-      <div className="max-w-3xl mx-auto  rounded-2xl shadow-md p-8">
-        <h1 className="text-center text-4xl lg:text-5xl my-8 font-bold text-indigo-500 ">Add a New Job</h1>
+    <div className="min-h-screen selection ">
+
+      <div className="max-w-3xl mx-auto my-12  rounded-2xl shadow-lg glassmorphic-card p-8">
+        <h1 className="text-center text-4xl lg:text-5xl my-8 font-extrabold text-indigo-500 ">
+          
+                       <SplitText
+                text="Add a New Job"
+                className=""
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+              />
+          </h1>
 
 
         <form onSubmit={handleAddJob} className="space-y-5 glassmorphic-card py-10 px-12  rounded-2xl">
@@ -52,6 +68,7 @@ const AddAJob = () => {
             <input
               type="text"
               name="title"
+              required
               placeholder="e.g. Frontend Developer"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
             />
@@ -64,6 +81,7 @@ const AddAJob = () => {
             </label>
             <input
               type="text"
+              required
               name="postedBy"
               value={user?.displayName || ""}
               readOnly
@@ -76,9 +94,11 @@ const AddAJob = () => {
             <label className="block font-medium mb-2">Category</label>
             <select
               name="category"
+              required
+              defaultValue=""
               className="w-full px-4 py-2 border border-gray-400 rounded-lg bg-indigo-400 text-white"
             >
-              <option>Select a category</option>
+              <option value="" disabled hidden >Select a category</option>
               <option>Web Development</option>
               <option>Digital Marketing</option>
               <option>Graphics Design</option>
@@ -95,6 +115,7 @@ const AddAJob = () => {
             <textarea
               name="summary"
               rows="4"
+              required
               placeholder="Write a short job description..."
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
             />
@@ -107,6 +128,7 @@ const AddAJob = () => {
             </label>
             <input
               type="text"
+              required
               name="coverImage"
               placeholder="https://example.com/image.jpg"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
@@ -139,6 +161,7 @@ const AddAJob = () => {
           </div>
         </form>
       </div>
+      
     </div>
   );
 };

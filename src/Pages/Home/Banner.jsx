@@ -1,5 +1,5 @@
 import React from "react";
-
+import SplitText from "../../Components/ReactBits/SplitText";
 const Banner = () => {
   return (
     <div className="">
@@ -10,7 +10,20 @@ const Banner = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight  tracking-tight">
               Reliable Freelance
               <br className="hidden sm:block" />
-              <span className="text-indigo-500">Marketplace</span>
+              <SplitText
+                text="Marketplace"
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center text-indigo-500"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+              />
+         
             </h1>
             <p className="mt-6 text-lg sm:text-xl max-w-xl mx-auto md:mx-0 text-center md:text-justify">
               Find top-tier freelance talent or discover exciting new job
@@ -22,10 +35,10 @@ const Banner = () => {
             <button
               className="mt-8 px-10 py-4 bg-indigo-600 text-white font-bold text-lg rounded-full shadow-xl 
                          hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-[1.02] 
-                         focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-75 w-full sm:w-auto cursor-pointer"     >
+                         focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-75 w-full sm:w-auto cursor-pointer"
+            >
               View Opportunities
-            </button>           
-
+            </button>
           </div>
 
           {/* Right Image Section */}
@@ -35,7 +48,6 @@ const Banner = () => {
                          hover:shadow-indigo-500/40"
               src="https://i.ibb.co.com/QvQrhm2Q/404.png"
               alt="Professional Freelance Talent Illustration"
-     
             />
           </div>
         </div>
