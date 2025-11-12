@@ -7,7 +7,7 @@ const MyAddedJobs = () => {
 
   const [jobs, setJobs] = useState(userJobsData);
   const handleDeleteUser = (id) => {
-    fetch(`http://localhost:5000/jobs/${id}`, {
+    fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

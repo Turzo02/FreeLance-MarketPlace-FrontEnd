@@ -23,7 +23,7 @@ const AddAJob = () => {
       userEmail: userEmail,
     };
 
-    fetch("http://localhost:5000/jobs", {
+    fetch("https://freelance-marketplace-api-server-smoky.vercel.app/jobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

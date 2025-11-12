@@ -5,7 +5,7 @@ import TopCategories from './TopCategories';
 import WhyChooseUs from './WhyChooseUs';
 import LoadingSpinner from '../../Components/LoadingSpinner/LoadingSpinner';
 
-const latestJobsPromise = fetch("http://localhost:5000/latest_jobs").then(res => res.json());
+const latestJobsPromise = fetch("https://freelance-marketplace-api-server-smoky.vercel.app/latest_jobs").then(res => res.json());
 const Home = () => {
     return (
         <div className='section'>

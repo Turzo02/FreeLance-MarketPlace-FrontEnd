@@ -7,7 +7,7 @@ const AllJobs = () => {
   const [sortOrder, setSortOrder] = useState("descending");
 
   useEffect(() => {
-    fetch("http://localhost:5000/jobs")
+    fetch("https://freelance-marketplace-api-server-smoky.vercel.app/jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);

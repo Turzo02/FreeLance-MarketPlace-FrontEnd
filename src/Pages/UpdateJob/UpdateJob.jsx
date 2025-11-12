@@ -28,7 +28,7 @@ const UpdateJob = () => {
       userEmail,
     };
 
-    fetch(`http://localhost:5000/jobs/${_id}`, {
+    fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

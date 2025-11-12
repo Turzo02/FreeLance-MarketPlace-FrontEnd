@@ -9,7 +9,7 @@ const MyAcceptedTasks = () => {
   useEffect(() => {
     const fetchAcceptedTasks = async () => {
       const res = await fetch(
-        `http://localhost:5000/myacceptedtasks/${user?.email}`
+        `https://freelance-marketplace-api-server-smoky.vercel.app/myacceptedtasks/${user?.email}`
       );
       const data = await res.json();
       setTasks(data);
@@ -20,7 +20,7 @@ const MyAcceptedTasks = () => {
 
   const handleCancel = async (jobId) => {
     console.log("working");
-    fetch(`http://localhost:5000/jobs/${jobId}/cancel`, {
+    fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${jobId}/cancel`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userEmail: user.email }),

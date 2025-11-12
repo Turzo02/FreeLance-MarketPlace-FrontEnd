@@ -31,7 +31,7 @@ const Login = () => {
           photoUrl: user.photoURL,
         };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://freelance-marketplace-api-server-smoky.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

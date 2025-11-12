@@ -56,19 +56,19 @@ const router = createBrowserRouter([
     },
     {
       path:"/jobs/:id",
-      loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`),
+      loader:({params})=>fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`),
       Component:JobDetails
     },
     {
       path:"/myaddedjobs/:email",
-      loader:({params})=>fetch(`http://localhost:5000/jobs/user/${params.email}`),
+      loader:({params})=>fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/user/${params.email}`),
       element:(<PrivateRoute>
         <MyAddedJobs></MyAddedJobs>
       </PrivateRoute>)
     },
     {
      path:"/updatejob/:id",
-     loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`),
+     loader:({params})=>fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`),
     element:
     <PrivateRoute>
       <UpdateJob></UpdateJob>
