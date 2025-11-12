@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Link } from "react-router";
 import SplitText from "../../Components/ReactBits/SplitText";
+
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [sortOrder, setSortOrder] = useState("descending");
@@ -55,6 +56,7 @@ const AllJobs = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {sortedJobs.map((job) => (
+
           <div
             key={job._id}
             className="glassmorphic-card rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 "
@@ -75,6 +77,7 @@ const AllJobs = () => {
                 <span>{new Date(job.postedAt).toLocaleDateString()}</span>
               </div>
               <Link to={`/jobs/${job._id}`}>
+
                 <button
                   className="mt-8 px-10 py-4 bg-indigo-500 text-white font-bold text-lg rounded-full shadow-xl 
                          hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-[1.02] 
@@ -83,9 +86,11 @@ const AllJobs = () => {
                   {" "}
                   View Details{" "}
                 </button>
+                
               </Link>
             </div>
           </div>
+
         ))}
       </div>
     </div>

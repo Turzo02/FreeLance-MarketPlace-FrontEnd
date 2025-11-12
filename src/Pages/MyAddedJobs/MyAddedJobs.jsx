@@ -60,7 +60,7 @@ const MyAddedJobs = () => {
 
             <div className="right flex gap-4 p-4">
               <Link to={`/updateJob/${job._id}`}>
-                <button className="btn  flex items-center justify-center gap-3 bg-green-500 text-white  rounded-lg hover:bg-green-600 transition cursor-pointer border-none ">
+                <button className="btn  flex items-center justify-center gap-3  bg-indigo-500 text-white hover:bg-indigo-600   rounded-lg  transition cursor-pointer border-none ">
 
                   <CircleFadingArrowUp />
                   Update
@@ -68,7 +68,7 @@ const MyAddedJobs = () => {
               </Link>
               <button
                 onClick={() => handleDeleteUser(job._id)}
-                className="btn flex-1 flex items-center justify-center gap-3 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition cursor-pointer border-none"
+                className="btn flex-1 flex items-center justify-center gap-3  py-2 rounded-lg  bg-gray-300 text-gray-800 hover:bg-gray-400 transition cursor-pointer border-none"
               >
                 <Trash2 />
                 Delete

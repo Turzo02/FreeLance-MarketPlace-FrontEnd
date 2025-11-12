@@ -2,6 +2,7 @@ import React, { useEffect, useState, use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { CircleCheckBig, MessageCircleX } from "lucide-react";
 import SplitText from "../../Components/ReactBits/SplitText";
+
 const MyAcceptedTasks = () => {
   const { user } = use(AuthContext);
   const [tasks, setTasks] = useState([]);
@@ -19,7 +20,7 @@ const MyAcceptedTasks = () => {
 
   const handleCancel = async (jobId) => {
     console.log("working");
-   fetch(`http://localhost:5000/jobs/${jobId}/cancel`, {
+    fetch(`http://localhost:5000/jobs/${jobId}/cancel`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userEmail: user.email }),
@@ -28,32 +29,27 @@ const MyAcceptedTasks = () => {
       .then((data) => {
         console.log(data);
       });
-  
+
     setTasks(tasks.filter((task) => task._id !== jobId));
-
   };
-
 
   return (
     <div className="min-h-screen section ">
-     
-        <h1 className="text-center text-4xl lg:text-5xl my-4 font-bold text-indigo-500 ">
-          
-                       <SplitText
-                text="Your Accepted Tasks"
-                className=""
-                delay={100}
-                duration={0.6}
-                ease="power3.out"
-                splitType="chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-                rootMargin="-100px"
-                textAlign="center"
-              />
-          
-          </h1>
+      <h1 className="text-center text-4xl lg:text-5xl my-4 font-bold text-indigo-500 ">
+        <SplitText
+          text="Your Accepted Tasks"
+          className=""
+          delay={100}
+          duration={0.6}
+          ease="power3.out"
+          splitType="chars"
+          from={{ opacity: 0, y: 40 }}
+          to={{ opacity: 1, y: 0 }}
+          threshold={0.1}
+          rootMargin="-100px"
+          textAlign="center"
+        />
+      </h1>
 
       {tasks.length === 0 ? (
         <p className="text-center text-gray-400">
@@ -73,31 +69,34 @@ const MyAcceptedTasks = () => {
               />
 
               <div className="p-4 flex flex-col gap-2">
-                <h2 className="text-lg font-semibold ">
-                  {task.title}
-                </h2>
-                <p className=" text-sm">
-                  Posted by: {task.postedBy}
-                </p>
+                <h2 className="text-lg font-semibold ">{task.title}</h2>
+                <p className=" text-sm">Posted by: {task.postedBy}</p>
                 <p className="text-gray-400 text-sm">
                   Category: {task.category}
                 </p>
                 <p className="text-gray-400 text-sm mt-2">{task.summary}</p>
 
                 {/* Action Buttons */}
+
                 <div className="mt-4 flex gap-3">
+                  {/* Done Button */}
                   <button
                     onClick={() => handleCancel(task._id)}
-                    className="flex-1 rounded-lg flex items-center justify-center gap-3  cursor-pointer bg-green-500 text-white py-2 hover:bg-green-600 transition"
+                    className="flex-1 rounded-lg flex items-center justify-center gap-3 py-2
+               bg-indigo-500 text-white hover:bg-indigo-600
+               transition-colors duration-300 ease-in-out cursor-pointer"
                   >
-                   <CircleCheckBig />       Done
+                    <CircleCheckBig /> Done
                   </button>
 
+                  {/* Cancel Button */}
                   <button
                     onClick={() => handleCancel(task._id)}
-                    className="flex-1 flex items-center justify-center gap-3 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition cursor-pointer"
-                  >    <MessageCircleX />  
-                     Cancel
+                    className="flex-1 flex items-center justify-center gap-3 py-2
+               bg-gray-300 text-gray-800 hover:bg-gray-400
+               rounded-lg transition-colors duration-300 ease-in-out cursor-pointer"
+                  >
+                    <MessageCircleX /> Cancel
                   </button>
                 </div>
               </div>

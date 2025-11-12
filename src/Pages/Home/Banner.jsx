@@ -1,8 +1,10 @@
 import React from "react";
 import SplitText from "../../Components/ReactBits/SplitText";
+
 const Banner = () => {
   return (
     <div className="">
+
       <div className="section px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
           {/* Left Content Section */}
@@ -38,7 +40,7 @@ const Banner = () => {
                          focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-75 w-full sm:w-auto cursor-pointer"
             >
               View Opportunities
-            </button>
+            </button>          
           </div>
 
           {/* Right Image Section */}
@@ -52,6 +54,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

@@ -45,7 +45,7 @@ const UpdateJob = () => {
   return (
     <div className="section min-h-screen">
       <div className="max-w-3xl mx-auto rounded-2xl shadow-lg glassmorphic-card p-10 my-8">
-        <h1 className="text-center text-4xl lg:text-5xl mt-6 mb-14  font-bold text-indigo-500 ">
+        <h1 className="text-center text-4xl lg:text-5xl mb-8 font-bold text-indigo-500 ">
           
                        <SplitText
                 text="Update Your Job"
