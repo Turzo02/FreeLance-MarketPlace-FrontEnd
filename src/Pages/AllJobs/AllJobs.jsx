@@ -2,16 +2,16 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Link } from "react-router";
 import SplitText from "../../Components/ReactBits/SplitText";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
+import axios from "axios";
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [sortOrder, setSortOrder] = useState("descending");
   const [loading,setLoading] = useState(true)
 
   useEffect(() => {
-    fetch("https://freelance-marketplace-api-server-smoky.vercel.app/jobs")
-      .then((res) => res.json())
-      .then((data) => {
-        setJobs(data);
+    axios.get("https://freelance-marketplace-api-server-smoky.vercel.app/jobs")
+      .then((res) =>{
+        setJobs(res.data);
         setLoading(false)
       })
       .catch((error) =>{

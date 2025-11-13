@@ -3,7 +3,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import SplitText from "../../Components/ReactBits/SplitText";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
-import { tr } from "motion/react-client";
+import axios from "axios";
 const AddAJob = () => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
@@ -27,24 +27,28 @@ const AddAJob = () => {
       userEmail: userEmail,
     };
 
-    fetch("https://freelance-marketplace-api-server-smoky.vercel.app/jobs", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newJob),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+    axios
+      .post(
+        "https://freelance-marketplace-api-server-smoky.vercel.app/jobs",
+        newJob
+      )
+      .then((res) => {
         Swal.fire({
           title: "Success!",
           text: "Your job has been added. Click the button to redirect...",
           icon: "success",
-          showConfirmButton: tr,
+          showConfirmButton: true,
         }).then(() => {
-            navigate(`/myaddedjobs/${user?.email}`);
-        })
+          navigate(`/myaddedjobs/${user?.email}`);
+        });
+      })
+      .catch((error) => {
+        console.error("Error adding job:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong while adding the job.",
+          icon: "error",
+        });
       });
 
     form.reset();

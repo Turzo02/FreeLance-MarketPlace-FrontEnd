@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthContext";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,7 +23,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
 
         //create user in database
         const newUser = {
@@ -31,16 +32,16 @@ const Login = () => {
           photoUrl: user.photoURL,
         };
 
-        fetch("https://freelance-marketplace-api-server-smoky.vercel.app/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(newUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(" data after user Saved", data);
+        axios
+          .post(
+            "https://freelance-marketplace-api-server-smoky.vercel.app/users",
+            newUser
+          )
+          .then((res) => {
+            // console.log("User saved to database:", res.data);
+          })
+          .catch((error) => {
+            console.error("Error saving user:", error);
           });
 
         Swal.fire({
@@ -68,11 +69,11 @@ const Login = () => {
     setSuccess(false);
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         setSuccess(true);
         e.target.reset();
 

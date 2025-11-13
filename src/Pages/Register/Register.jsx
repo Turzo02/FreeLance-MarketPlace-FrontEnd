@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Register = () => {
   const { googleSignIn, createUser } = use(AuthContext);
@@ -13,7 +14,6 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state || "/";
- 
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const Register = () => {
     const email = e.target.email.value;
     const photoUrl = e.target.photoUrl.value;
     const password = e.target.password.value;
-    console.log(name, email, photoUrl, password);
+    // console.log(name, email, photoUrl, password);
 
     //password validation
     const patterns = {
@@ -58,21 +58,17 @@ const Register = () => {
           photoUrl: photoUrl,
         };
 
-        fetch("https://freelance-marketplace-api-server-smoky.vercel.app/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(savedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(" data after user Saved to mongoDB", data);
+        axios
+          .post(
+            "https://freelance-marketplace-api-server-smoky.vercel.app/users",
+            savedUser
+          )
+          .then((res) => {
+            // console.log("Data after user saved to MongoDB:", res.data);
           })
           .catch((error) => {
-            console.log(error);
+            console.error("Error saving user:", error);
           });
-
         Swal.fire(
           "Success",
           "Account created successfully! You will be redirected to home page",
@@ -92,8 +88,7 @@ const Register = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        console.log(user);
-
+        // console.log(user);
         //create user in database
         const newUser = {
           name: user.displayName,
@@ -101,16 +96,16 @@ const Register = () => {
           photoUrl: user.photoURL,
         };
 
-        fetch("https://freelance-marketplace-api-server-smoky.vercel.app/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(newUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(" data after user Saved to mongoDB", data);
+        axios
+          .post(
+            "https://freelance-marketplace-api-server-smoky.vercel.app/users",
+            newUser
+          )
+          .then((res) => {
+            // console.log("Data after user saved to MongoDB:", res.data);
+          })
+          .catch((error) => {
+            console.error("Error saving user:", error);
           });
 
         Swal.fire({
@@ -194,6 +189,12 @@ const Register = () => {
                       )}
                     </button>
                   </div>
+                  {error && <p className="text-red-600">{error}</p>}
+                  {success && (
+                    <p className="text-green-600">
+                      Your account has been created!
+                    </p>
+                  )}
 
                   <button className="btn btn-neutral mt-4">Register</button>
                 </fieldset>

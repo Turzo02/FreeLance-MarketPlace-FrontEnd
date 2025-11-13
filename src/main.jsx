@@ -17,7 +17,7 @@ import JobDetails from "./Pages/JobDetails/JobDetails.jsx";
 import MyAddedJobs from "./Pages/MyAddedJobs/MyAddedJobs.jsx";
 import UpdateJob from "./Pages/UpdateJob/UpdateJob.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
-
+import LoadingSpinner from "./Components/LoadingSpinner/LoadingSpinner.jsx";
 
 const router = createBrowserRouter([
   {
@@ -87,7 +87,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+    <RouterProvider router={router} hydrateFallback={<LoadingSpinner></LoadingSpinner>} />
     </AuthProvider>
   </StrictMode>
 );

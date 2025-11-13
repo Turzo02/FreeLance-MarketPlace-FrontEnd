@@ -3,46 +3,44 @@ import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import SplitText from "../../Components/ReactBits/SplitText";
 import Swal from "sweetalert2";
+import axios from "axios";
 const MyAddedJobs = () => {
   const userJobsData = useLoaderData();
 
   const [jobs, setJobs] = useState(userJobsData);
   const handleDeleteUser = (id) => {
     Swal.fire({
-      title: "Are you sure Want to delete this job?",
+      title: "Are you sure you want to delete this job?",
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#b21c40",
       cancelButtonColor: "#4f39f6",
       confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
+        try {
+          const res = await axios.delete(
+            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${id}`
+          );
+          // console.log("Delete response:", res.data);
 
-            Swal.fire("Deleted!", "The job has been deleted.", "success").then(
-              () => {
-                const remaining = jobs.filter((job) => job._id !== id);
-                setJobs(remaining);
-              }
-            );
-          })
-          .catch((error) => {
-            console.error(error);
-            Swal.fire("Error!", "Failed to delete the job.", "error");
-          });
+              Swal.fire({
+                 title: "Success!",
+                 text: "Your Posted job  has been Deleted.",
+                 icon: "success",
+                 confirmButtonText: "OK",
+               })
+
+          const remaining = jobs.filter((job) => job._id !== id);
+          setJobs(remaining);
+        } catch (error) {
+          console.error("Error deleting job:", error);
+          Swal.fire("Error!", "Failed to delete the job.", "error");
+        }
       }
     });
   };
-
   return (
     <div className="section min-h-screen">
       <h1 className="text-center text-4xl  lg:text-5xl my-8 font-bold text-indigo-500 ">
@@ -65,7 +63,6 @@ const MyAddedJobs = () => {
           You have not added any jobs yet.
         </p>
       ) : (
-
         <div className=" my-3">
           {jobs.map((job) => (
             <div
@@ -111,7 +108,6 @@ const MyAddedJobs = () => {
             </div>
           ))}
         </div>
-
       )}
     </div>
   );

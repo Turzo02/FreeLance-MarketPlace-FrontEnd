@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { Navigate, useLoaderData, useNavigate } from "react-router";
 import SplitText from "../../Components/ReactBits/SplitText";
 import Swal from "sweetalert2";
+import axios from "axios";
 const UpdateJob = () => {
   const data = useLoaderData();
   const [userdata, setUserData] = useState(data);
   const navigate = useNavigate();
   const { category, coverImage, postedBy, summary, title, userEmail, _id } =
     userdata;
-  console.log(category, coverImage, postedBy, summary, title, userEmail, _id);
+  // console.log(category, coverImage, postedBy, summary, title, userEmail, _id);
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -20,7 +21,7 @@ const UpdateJob = () => {
     const summary = form.summary.value;
     const coverImage = form.coverImage.value;
     const userEmail = form.userEmail.value;
-    console.log(title, postedBy, category, summary, coverImage, userEmail);
+
     const newJobData = {
       title,
       postedBy,
@@ -30,32 +31,34 @@ const UpdateJob = () => {
       userEmail,
     };
 
-    fetch(
-      `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${_id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newJobData),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-              Swal.fire({
+    try {
+      const res = await axios.patch(
+        `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${_id}`,
+        newJobData 
+      );
+
+      // console.log("Job updated:", res.data);
+
+      Swal.fire({
         title: "Success!",
         text: "Your job details have been updated.",
         icon: "success",
         confirmButtonText: "OK",
       }).then(() => {
-        navigate(`/myaddedjobs/${userEmail}`); 
+        navigate(`/myaddedjobs/${userEmail}`);
       });
-      }).catch((err) => console.log(err));
-    form.reset();
-    setUserData(newJobData);
-  };
 
+      form.reset();
+      setUserData(newJobData);
+    } catch (err) {
+      console.error("Error updating job:", err);
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to update the job.",
+        icon: "error",
+      });
+    }
+  };
   return (
     <div className="section min-h-screen">
       <div className="max-w-3xl mx-auto rounded-2xl shadow-lg glassmorphic-card p-10 my-8">

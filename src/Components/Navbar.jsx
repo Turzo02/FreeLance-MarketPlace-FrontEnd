@@ -58,7 +58,7 @@ const Navbar = () => {
 
   return (
 
-<div className="glassmorphic-card sticky top-0 z-50 shadow-md ">
+<div className="glassmorphic-card sticky top-0 z-50 shadow-lg ">
   <div className="navbar section">
     <div className="navbar-start">
       {/* Drop down part for small screens */}
