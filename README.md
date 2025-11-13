@@ -1,7 +1,6 @@
 🧑‍💻 Freelance MarketPlace
-🚀 Live Site:   https://freelance-marketplace-server.vercel.app
-
-🌐 Server API : https://freelance-marketplace-by-turzo.netlify.app/
+🚀 Live Site: https://freelance-marketplace-by-turzo.netlify.app/
+🌐 Server API : https://freelance-marketplace-api-server-smoky.vercel.app/
 
 
 
