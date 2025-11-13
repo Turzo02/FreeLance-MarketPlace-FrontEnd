@@ -29,6 +29,7 @@ const AllJobs = () => {
   });
   return (
     <div className="section p-4 ">
+      <title>All Jobs</title>
       <h2 className="glassmorphic-card text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight  tracking-tight text-center my-7 py-6 text-indigo-500">
         
          

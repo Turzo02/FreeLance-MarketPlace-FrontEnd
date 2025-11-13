@@ -100,6 +100,7 @@ const Login = () => {
     <div>
       {/* Login page and Functionlaity Added */}
       <div className="hero bg-base-200 min-h-screen">
+            <title>Login</title>
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left mb-5">
             <h1 className="text-5xl font-bold">Login now!</h1>

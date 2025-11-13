@@ -1,36 +1,48 @@
 import React, { use } from "react";
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const JobDetails = () => {
   const data = useLoaderData();
   const { user } = use(AuthContext);
   const postedJobUserMail = data?.userEmail;
   const loggedInUserMail = user?.email;
-
+  const navigate = useNavigate()
   //if loggedInuserMail === acceptedUserMail => disable button you already accepted the job
 
-  const handleAcceptedJob = () => {
-    const acceptedUserData = {
-      acceptedUserMail: user?.email,
-    };
-
-    axios
-      .patch(
-        `https://freelance-marketplace-api-server-smoky.vercel.app/acceptedjobs/${data._id}`,
-        acceptedUserData
-      )
-      .then((res) => {
-        // console.log("Job accepted successfully:", res.data);
-      })
-      .catch((error) => {
-        console.error("Error updating job status:", error);
-      });
+const handleAcceptedJob = () => {
+  const acceptedUserData = {
+    acceptedUserMail: user?.email,
   };
+
+  axios
+    .patch(
+      `https://freelance-marketplace-api-server-smoky.vercel.app/acceptedjobs/${data._id}`,
+      acceptedUserData
+    )
+    .then((res) => {
+      return Swal.fire({
+        title: "Success",
+        text: "Job accepted successfully!",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+    })
+    .then(() => {
+      navigate('/acceptedTasks');
+    })
+    .catch((error) => {
+      console.error("Error updating job status:", error);
+    });
+};
+
 
   return (
     <div className="min-h-screen">
+            <title>Job Details</title>
+
       <div className="max-w-5xl mx-auto px-4 py-10">
         <div className=" shadow-lg rounded-2xl overflow-hidden">
           {/* Cover Image */}
@@ -93,14 +105,13 @@ const JobDetails = () => {
                   You already accepted this job
                 </button>
               ) : (
-                <Link to="/acceptedTasks">
+                // <Link to="/alljobs">
                   <button
                     onClick={handleAcceptedJob}
                     className="inline-block w-full sm:w-auto cursor-pointer text-center bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-600 transition"
                   >
                     Accept the Job
                   </button>
-                </Link>
               )}
             </div>
           </div>

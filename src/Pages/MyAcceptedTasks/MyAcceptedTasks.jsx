@@ -55,6 +55,7 @@ const MyAcceptedTasks = () => {
   };
   return (
     <div className="min-h-screen section ">
+      <title>My Accepted Tasks</title>
       <h1 className="text-center text-4xl lg:text-5xl my-4 font-bold text-indigo-500 ">
         <SplitText
           text="Your Accepted Tasks"

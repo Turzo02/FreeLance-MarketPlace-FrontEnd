@@ -56,6 +56,8 @@ const AddAJob = () => {
 
   return (
     <div className="min-h-screen selection ">
+            <title>Add a New Job</title>
+
       <div className="max-w-3xl mx-auto my-6  rounded-2xl shadow-lg glassmorphic-card p-8">
         <h1 className="text-center text-4xl lg:text-5xl mb-8 font-extrabold text-indigo-500 ">
           <SplitText

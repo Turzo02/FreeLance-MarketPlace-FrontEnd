@@ -129,6 +129,8 @@ const Register = () => {
 
   return (
     <div>
+            <title>Register</title>
+
       {/* Register page and Functionlaity Added */}
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col ">

@@ -43,6 +43,7 @@ const MyAddedJobs = () => {
   };
   return (
     <div className="section min-h-screen">
+      <title>My Added Jobs</title>
       <h1 className="text-center text-4xl  lg:text-5xl my-8 font-bold text-indigo-500 ">
         <SplitText
           text="Your Added Job"

@@ -4,7 +4,6 @@ import { MdMarkEmailRead } from "react-icons/md";
 import { RiWebhookFill } from "react-icons/ri";
 import { motion } from "motion/react";
 
-
 const categories = [
   {
     title: "Web Development",

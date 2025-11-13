@@ -1,6 +1,9 @@
 🧑‍💻 Freelance MarketPlace
-🚀 Live Site: https://freelance-marketplace.netlify.app
-🌐 Server API: https://freelance-marketplace-server.vercel.app
+🚀 Live Site:   https://freelance-marketplace-server.vercel.app
+
+🌐 Server API : https://freelance-marketplace-by-turzo.netlify.app/
+
+
 
 
 ## What is Freelance MarketPlace?

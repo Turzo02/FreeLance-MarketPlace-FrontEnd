@@ -14,6 +14,7 @@ const latestJobsPromise = axios
 const Home = () => {
     return (
         <div className='section'>
+            <title>Homepage</title>
             <Banner></Banner>
             <Suspense fallback={<LoadingSpinner></LoadingSpinner>}>
             <LatestJobs latestJobsPromise={latestJobsPromise}></LatestJobs>
