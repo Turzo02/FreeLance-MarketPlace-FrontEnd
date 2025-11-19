@@ -5,8 +5,10 @@
 
 Freelance MarketPlace is a dynamic full-stack web application designed to connect freelancers and clients in a seamless digital workspace. Users can explore a variety of freelance jobs, post new opportunities, update existing listings, and efficiently manage tasks. Authenticated users have the ability to create, edit, and monitor their job postings, while other users can browse available tasks and accept projects to work on. The platform aims to simplify project collaboration, enhance task visibility, and provide an organized environment for managing freelance work from start to finish.
 
-## Screenshot
-![Freelance MarketPlace Screenshot](https://i.ibb.co.com/RG123nZ0/Screenshot-2025-11-19-132812.png)
+## 📸 Screenshot
+![Project Screenshot](https://i.ibb.co/RG123nZ0/Screenshot-2025-11-19-132812.png)
+
+
 
 ## 🛠️ Main Technologies
 - React
