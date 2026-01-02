@@ -18,6 +18,7 @@ import MyAddedJobs from "./Pages/MyAddedJobs/MyAddedJobs.jsx";
 import UpdateJob from "./Pages/UpdateJob/UpdateJob.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import LoadingSpinner from "./Components/LoadingSpinner/LoadingSpinner.jsx";
+import HowITWorks from "./Pages/HowITWorks/HowITWorks";
 
 const router = createBrowserRouter([
   {
@@ -38,9 +39,15 @@ const router = createBrowserRouter([
     },
     {
       path:"/allJobs",
-      element:<PrivateRoute>
+      element:
         <AllJobs></AllJobs>
-      </PrivateRoute>
+      
+    },
+    {
+      path:"/how-it-works",
+      element:
+        <HowITWorks></HowITWorks>
+      
     },
     {
       path:"/addAJob",

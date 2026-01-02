@@ -9,39 +9,38 @@ const JobDetails = () => {
   const { user } = use(AuthContext);
   const postedJobUserMail = data?.userEmail;
   const loggedInUserMail = user?.email;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   //if loggedInuserMail === acceptedUserMail => disable button you already accepted the job
 
-const handleAcceptedJob = () => {
-  const acceptedUserData = {
-    acceptedUserMail: user?.email,
-  };
+  const handleAcceptedJob = () => {
+    const acceptedUserData = {
+      acceptedUserMail: user?.email,
+    };
 
-  axios
-    .patch(
-      `https://freelance-marketplace-api-server-smoky.vercel.app/acceptedjobs/${data._id}`,
-      acceptedUserData
-    )
-    .then((res) => {
-      return Swal.fire({
-        title: "Success",
-        text: "Job accepted successfully!",
-        icon: "success",
-        confirmButtonText: "OK",
+    axios
+      .patch(
+        `https://freelance-marketplace-api-server-smoky.vercel.app/acceptedjobs/${data._id}`,
+        acceptedUserData
+      )
+      .then((res) => {
+        return Swal.fire({
+          title: "Success",
+          text: "Job accepted successfully!",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      })
+      .then(() => {
+        navigate("/acceptedTasks");
+      })
+      .catch((error) => {
+        console.error("Error updating job status:", error);
       });
-    })
-    .then(() => {
-      navigate('/acceptedTasks');
-    })
-    .catch((error) => {
-      console.error("Error updating job status:", error);
-    });
-};
-
+  };
 
   return (
     <div className="min-h-screen">
-            <title>Job Details</title>
+      <title>Job Details</title>
 
       <div className="max-w-5xl mx-auto px-4 py-10">
         <div className=" shadow-lg rounded-2xl overflow-hidden">
@@ -59,7 +58,7 @@ const handleAcceptedJob = () => {
           <div className="p-6 sm:p-10 glassmorphic-card">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <h1 className="text-2xl sm:text-3xl font-bold">{data.title}</h1>
-              <span className="py-2 px-4 glassmorphic-card  text-sm font-semibold rounded-full">
+              <span className="py-2 px-4 glassmorphic-card  text-sm font-semibold rounded-sm">
                 {data.category}
               </span>
             </div>
@@ -106,12 +105,12 @@ const handleAcceptedJob = () => {
                 </button>
               ) : (
                 // <Link to="/alljobs">
-                  <button
-                    onClick={handleAcceptedJob}
-                    className="inline-block w-full sm:w-auto cursor-pointer text-center bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-600 transition"
-                  >
-                    Accept the Job
-                  </button>
+                <button
+                  onClick={handleAcceptedJob}
+                  className="inline-block w-full sm:w-auto cursor-pointer text-center bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-600 transition"
+                >
+                  Accept the Job
+                </button>
               )}
             </div>
           </div>

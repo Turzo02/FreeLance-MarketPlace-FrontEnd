@@ -53,7 +53,7 @@ const TopCategories = () => {
                 }}
               >
                 <motion.div
-                  className="w-16 h-16 bg-indigo-50/70 text-indigo-600 rounded-full flex items-center justify-center mb-6 text-4xl"
+                  className="w-16 h-16 bg-indigo-50/70 text-indigo-600 rounded-sm flex items-center justify-center mb-6 text-4xl"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{

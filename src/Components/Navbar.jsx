@@ -45,6 +45,10 @@ const Navbar = () => {
         <NavLink to="/allJobs"> All Jobs </NavLink>
       </li>
       <li>
+        <NavLink to="/how-it-works"> How It Works </NavLink>
+      </li>
+
+      <li>
         <NavLink to="/addAJob"> Add a Job </NavLink>
       </li>
       <li>
@@ -57,102 +61,110 @@ const Navbar = () => {
   );
 
   return (
+    <div className="glassmorphic-card sticky top-0 z-50 shadow-lg ">
+      <div className="navbar section">
+        <div className="navbar-start">
+          {/* Drop down part for small screens */}
+          <div className="dropdown lg:hidden">
+            <div tabIndex={0} role="button" className="btn btn-ghost">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabIndex="-1"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow flex flex-col gap-2"
+            >
+              {/* Links */}
+              {Links}
 
-<div className="glassmorphic-card sticky top-0 z-50 shadow-lg ">
-  <div className="navbar section">
-    <div className="navbar-start">
-      {/* Drop down part for small screens */}
-      <div className="dropdown lg:hidden">
-        <div tabIndex={0} role="button" className="btn btn-ghost">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+              {/* Profile info only on small screens */}
+              {user && (
+                <div className="flex items-center gap-2 border-t pt-2">
+                  <img
+                    src={user.photoURL}
+                    alt="Profile"
+                    className="w-8 h-8 object-cover rounded-sm"
+                  />
+                  <span className="font-semibold">{user.displayName}</span>
+                </div>
+              )}
+            </ul>
+          </div>
+
+          <a
+            href="/"
+            className="btn btn-ghost text-xl font-bold text-indigo-500"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h8m-8 6h16"
-            />
-          </svg>
+            ⚓FM
+          </a>
         </div>
-        <ul
-          tabIndex="-1"
-          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow flex flex-col gap-2"
-        >
-          {/* Links */}
-          {Links}
 
-          {/* Profile info only on small screens */}
+        {/* Center links for large screens */}
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">{Links}</ul>
+        </div>
+
+        {/* Navbar-end */}
+        <div className="navbar-end flex items-center gap-2">
+          {/* Profile info only on large screens */}
           {user && (
-            <div className="flex items-center gap-2 border-t pt-2">
+            <div className="hidden lg:flex items-center gap-2 group cursor-pointer">
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+                {user.displayName}
+              </span>
               <img
                 src={user.photoURL}
                 alt="Profile"
-                className="w-8 h-8 object-cover rounded-full"
+                className="w-8 h-8 object-cover rounded-sm"
               />
-              <span className="font-semibold">{user.displayName}</span>
             </div>
           )}
-        </ul>
-      </div>
 
-      <a href="/" className="btn btn-ghost text-xl font-bold text-indigo-500">⚓FM</a>
-    </div>
+          {/* Login / Logout buttons always visible */}
+          {user ? (
+            <button
+              onClick={handleSignOut}
+              className="btn bg-indigo-500 text-white border-none"
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link to="/login">
+                <button className="btn  bg-indigo-500 text-white  border-none">
+                  Login
+                </button>
+              </Link>
+              <Link to="/register">
+                <button className="btn bg-indigo-500 text-white border-none ">
+                  Register
+                </button>
+              </Link>
+            </>
+          )}
 
-    {/* Center links for large screens */}
-    <div className="navbar-center hidden lg:flex">
-      <ul className="menu menu-horizontal px-1">{Links}</ul>
-    </div>
-
-    {/* Navbar-end */}
-    <div className="navbar-end flex items-center gap-2">
-      {/* Profile info only on large screens */}
-      {user && (
-        <div className="hidden lg:flex items-center gap-2 group cursor-pointer">
-          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
-            {user.displayName}
-          </span>
-          <img
-            src={user.photoURL}
-            alt="Profile"
-            className="w-8 h-8 object-cover rounded-full"
+          {/* Theme toggle */}
+          <input
+            onClick={toggleTheme}
+            type="checkbox"
+            defaultChecked
+            className="toggle toggle-primary ml-2 border border-violet-500"
           />
         </div>
-      )}
-
-      {/* Login / Logout buttons always visible */}
-      {user ? (
-        <button onClick={handleSignOut} className="btn bg-indigo-500 text-white border-none">
-          Logout
-        </button>
-      ) : (
-        <>
-          <Link to="/login">
-            <button className="btn  bg-indigo-500 text-white  border-none">Login</button>
-          </Link>
-          <Link to="/register">
-            <button className="btn bg-indigo-500 text-white border-none ">Register</button>
-          </Link>
-        </>
-      )}
-
-      {/* Theme toggle */}
-      <input
-        onClick={toggleTheme}
-        type="checkbox"
-        defaultChecked
-        className="toggle toggle-primary ml-2 border border-violet-500"
-      />
+      </div>
     </div>
-  </div>
-</div>
-
-
-    
   );
 };
 

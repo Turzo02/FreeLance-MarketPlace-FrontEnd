@@ -37,7 +37,7 @@ const Banner = () => {
             {/* Call to Action Button */}
             <Link to="/alljobs">
               <button
-                className="mt-8 px-10 py-4 bg-indigo-600 text-white font-bold text-lg rounded-full shadow-xl 
+                className="mt-8 px-10 py-4 bg-indigo-600 text-white font-bold text-lg rounded-sm shadow-xl 
                          hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-[1.02] 
                          focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-75 w-full sm:w-auto cursor-pointer"
               >
