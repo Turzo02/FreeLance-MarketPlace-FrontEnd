@@ -1,3 +1,4 @@
+import { UserCheck } from 'lucide-react';
 import React from 'react';
 import { useNavigate } from 'react-router';
 
@@ -34,7 +35,8 @@ const JobCard = ({ LatestJobsData }) => {
                                 {job.summary}
                             </p>
                             <div className="flex justify-between items-center text-sm  ">
-                                <span>Posted by: {job.postedBy}</span>
+                                                <span className="flex justify-center items-center gap-2"><UserCheck /> {job.postedBy}</span>
+                                
                                 <span>{new Date(job.postedAt).toLocaleDateString()}</span>
                             </div>
                         </div>

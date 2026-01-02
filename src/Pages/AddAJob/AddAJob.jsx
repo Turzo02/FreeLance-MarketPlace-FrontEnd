@@ -58,7 +58,7 @@ const AddAJob = () => {
     <div className="min-h-screen selection ">
             <title>Add a New Job</title>
 
-      <div className="max-w-3xl mx-auto my-6  rounded-2xl shadow-lg glassmorphic-card p-8">
+      <div className="max-w-3xl mx-auto my-6  rounded-2xl shadow-lg glassmorphic-card p-4 md:p-8">
         <h1 className="text-center text-4xl lg:text-5xl mb-8 font-extrabold text-indigo-500 ">
           <SplitText
             text="Add a New Job"
@@ -77,7 +77,7 @@ const AddAJob = () => {
 
         <form
           onSubmit={handleAddJob}
-          className="space-y-5 glassmorphic-card py-10 px-12  rounded-2xl"
+          className="space-y-5 glassmorphic-card py-10 px-6 md:px-12  rounded-2xl"
         >
           {/* Title */}
           <div>

@@ -19,82 +19,109 @@ import UpdateJob from "./Pages/UpdateJob/UpdateJob.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import LoadingSpinner from "./Components/LoadingSpinner/LoadingSpinner.jsx";
 import HowITWorks from "./Pages/HowITWorks/HowITWorks";
+import About from "./Pages/AdditionalPages/About.jsx";
+import Privacy from "./Pages/AdditionalPages/Privacy.jsx";
+import FAQ from "./Pages/AdditionalPages/FAQ.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-   Component:Root,
-   children: [
-    {
-      index: true,
-      Component: Home,
-    },
-    {
-      path:"/login",
-      Component:Login
-    },
-    {
-      path:"/register",
-      Component:Register
-    },
-    {
-      path:"/allJobs",
-      element:
-        <AllJobs></AllJobs>
-      
-    },
-    {
-      path:"/how-it-works",
-      element:
-        <HowITWorks></HowITWorks>
-      
-    },
-    {
-      path:"/addAJob",
-      element:<PrivateRoute>
-        <AddAJob></AddAJob>
-      </PrivateRoute>
-    },
-    {
-      path:"/acceptedTasks",
-      element:<PrivateRoute>
-        <MyAcceptedTasks></MyAcceptedTasks>
-      </PrivateRoute>
-    },
-    {
-      path:"/jobs/:id",
-      loader:({params})=>fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`),
-      Component:JobDetails
-    },
-    {
-      path:"/myaddedjobs/:email",
-      loader:({params})=>fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/user/${params.email}`),
-      element:(<PrivateRoute>
-        <MyAddedJobs></MyAddedJobs>
-      </PrivateRoute>)
-    },
-    {
-     path:"/updatejob/:id",
-     loader:({params})=>fetch(`https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`),
-    element:
-    <PrivateRoute>
-      <UpdateJob></UpdateJob>
-    </PrivateRoute>
-  
-
-    },
-    {
-      path:"*",
-      Component:NotFound
-
-    }
-   ]
-  }
+    Component: Root,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/register",
+        Component: Register,
+      },
+      {
+        path: "/allJobs",
+        element: <AllJobs></AllJobs>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/faq",
+        element: <FAQ></FAQ>,
+      },
+      {
+        path: "/privacy",
+        element: <Privacy></Privacy>,
+      },
+      {
+        path: "/how-it-works",
+        element: <HowITWorks></HowITWorks>,
+      },
+      {
+        path: "/addAJob",
+        element: (
+          <PrivateRoute>
+            <AddAJob></AddAJob>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/acceptedTasks",
+        element: (
+          <PrivateRoute>
+            <MyAcceptedTasks></MyAcceptedTasks>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/jobs/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`
+          ),
+        Component: JobDetails,
+      },
+      {
+        path: "/myaddedjobs/:email",
+        loader: ({ params }) =>
+          fetch(
+            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/user/${params.email}`
+          ),
+        element: (
+          <PrivateRoute>
+            <MyAddedJobs></MyAddedJobs>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updatejob/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <UpdateJob></UpdateJob>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "*",
+        Component: NotFound,
+      },
+    ],
+  },
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} hydrateFallback={<LoadingSpinner></LoadingSpinner>} />
+      <RouterProvider
+        router={router}
+        hydrateFallback={<LoadingSpinner></LoadingSpinner>}
+      />
     </AuthProvider>
   </StrictMode>
 );

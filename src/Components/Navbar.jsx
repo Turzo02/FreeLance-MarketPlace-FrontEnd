@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 const Navbar = () => {
-  const { user, signOutUser } = use(AuthContext);
+  const { user, signOutUser,loading } = use(AuthContext);
   const navigate = useNavigate();
   const [theme, setTheme] = useState("light");
 
@@ -36,29 +36,42 @@ const Navbar = () => {
       })
       .catch((error) => console.error(error));
   };
-  const Links = (
-    <>
-      <li>
-        <NavLink to="/"> Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/allJobs"> All Jobs </NavLink>
-      </li>
-      <li>
-        <NavLink to="/how-it-works"> How It Works </NavLink>
-      </li>
+const Links = (
+  <>
+    {/* Public Links */}
+    <li>
+      <NavLink to="/">Home</NavLink>
+    </li>
+    <li>
+      <NavLink to="/allJobs">All Jobs</NavLink>
+    </li>
+    <li>
+      <NavLink to="/how-it-works">How It Works</NavLink>
+    </li>
 
-      <li>
-        <NavLink to="/addAJob"> Add a Job </NavLink>
-      </li>
-      <li>
-        <NavLink to="/acceptedTasks"> My Accepted Tasks </NavLink>
-      </li>
-      <li>
-        <NavLink to={`/myaddedjobs/${user?.email}`}> My Added Jobs </NavLink>
-      </li>
-    </>
-  );
+    {/* Protected Links (Only show if user exists) */}
+    {user && (
+      <>
+        <li>
+          <NavLink to="/addAJob">Add a Job</NavLink>
+        </li>
+        <li>
+          <NavLink to="/acceptedTasks">My Accepted Tasks</NavLink>
+        </li>
+        <li>
+          <NavLink to={`/myaddedjobs/${user.email}`}>My Added Jobs</NavLink>
+        </li>
+      </>
+    )}
+  </>
+);
+
+if(loading){
+  return <div className="glassmorphic-card sticky top-0 z-50 shadow-lg">
+
+</div>
+
+}
 
   return (
     <div className="glassmorphic-card sticky top-0 z-50 shadow-lg ">
