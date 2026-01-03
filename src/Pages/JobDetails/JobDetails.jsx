@@ -106,10 +106,13 @@ const JobDetails = () => {
               ) : (
                 // <Link to="/alljobs">
                 <button
+                disabled={!user}
                   onClick={handleAcceptedJob}
-                  className="inline-block w-full sm:w-auto cursor-pointer text-center bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-600 transition"
+                  className="inline-block w-full disabled:opacity-50  disabled:cursor-not-allowed sm:w-auto cursor-pointer text-center bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg "
                 >
-                  Accept the Job
+                   {
+                    !user ? "Login To Access This feature":"Accept the Job"
+                  }
                 </button>
               )}
             </div>
