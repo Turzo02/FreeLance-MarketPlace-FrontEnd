@@ -30,7 +30,7 @@ const TopCategories = () => {
     <div>
       <section className="  py-16 md:py-24 font-sans">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl lg:text-5xl font-bold text-indigo-500 text-center mb-12 md:mb-16">
+          <h2 className="text-3xl lg:text-5xl font-bold text-indigo-500 text-center mb-12 md:mb-16">
             Discover Top Categories
           </h2>
 

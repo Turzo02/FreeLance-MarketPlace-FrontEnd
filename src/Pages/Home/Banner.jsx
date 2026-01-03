@@ -1,64 +1,115 @@
-import React, {   } from "react";
-import SplitText from "../../Components/ReactBits/SplitText";
+import { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+} from "lucide-react";
 import { Link } from "react-router";
 
+const slides = [
+  {
+    title: "Find Freelance Jobs Easily",
+    subtitle:
+      "Browse hundreds of freelance tasks and start working on projects that match your skills.",
+    ctaText: "Browse Jobs",
+    ctaLink: "/allJobs",
+  },
+  {
+    title: "Hire Skilled Freelancers",
+    subtitle:
+      "Post jobs, review applicants, and collaborate with talented freelancers worldwide.",
+    ctaText: "Post a Job",
+    ctaLink: "/allJobs",
+  },
+  {
+    title: "Manage Work in One Place",
+    subtitle:
+      "Track accepted tasks, manage job posts, and stay organized from start to finish.",
+    ctaText: "Get Started",
+    ctaLink: "/allJobs",
+  },
+];
 
 const Banner = () => {
+  const [current, setCurrent] = useState(0);
+
+  // auto slide
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  };
 
   return (
-    <div className="">
-      <div className="section px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-          {/* Left Content Section */}
-          <div className="md:w-1/2 text-center md:text-left order-2 md:order-1">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight  tracking-tight ">
-              Reliable Freelance
-              <br className="hidden sm:block" />
-              <SplitText
-                text="Marketplace"
-                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center text-indigo-500"
-                delay={100}
-                duration={0.6}
-                ease="power3.out"
-                splitType="chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-                rootMargin="-100px"
-                textAlign="center"
-              />
-            </h1>
-            <p className="mt-6 text-lg sm:text-xl max-w-xl mx-auto md:mx-0 text-center md:text-justify">
-              Find top-tier freelance talent or discover exciting new job
-              opportunities with ease and confidence. Secure your next project
-              or your next career step here.
-            </p>
+    <section
+      className="relative h-[65vh] overflow-hidden flex items-center justify-center 
+bg-linear-to-br from-indigo-50 via-indigo-100 to-indigo-200 
+dark:from-indigo-200 dark:via-indigo-400 dark:to-indigo-600"
+    >
+      {/* Slide Content */}
+      <div className="text-center max-w-3xl px-4 transition-all duration-500">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+          {slides[current].title}
+        </h1>
+        <p className="text-lg text-gray-600 mb-6">{slides[current].subtitle}</p>
 
-            {/* Call to Action Button */}
-            <Link to="/alljobs">
-              <button
-                className="mt-8 px-10 py-4 bg-indigo-600 text-white font-bold text-lg rounded-sm shadow-xl 
-                         hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-[1.02] 
-                         focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-75 w-full sm:w-auto cursor-pointer"
-              >
-                View Opportunities
-              </button>
-            </Link>
-          </div>
-
-          {/* Right Image Section */}
-
-          <div className="md:w-1/2 w-full order-1 md:order-2">
-            <img
-              className="w-full h-72 sm:h-96 md:h-[450px] object-cover rounded-3xl shadow-2xl transition duration-500 
-                         hover:shadow-indigo-500/40"
-              src={"https://i.ibb.co.com/21JwDwMP/banner.png"}
-              alt="Professional Freelance Talent Illustration"
-            />
-          </div>
-        </div>
+        <Link
+          to={slides[current].ctaLink}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-sm shadow-sm bg-indigo-500 text-white font-medium"
+        >
+          {slides[current].ctaText}
+          <ArrowRight size={18} />
+        </Link>
       </div>
-    </div>
+
+      {/* Controls */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-sm shadow-sm "
+        aria-label="Previous slide"
+      >
+        <ChevronLeft />
+      </button>
+
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-sm shadow-sm "
+        aria-label="Next slide"
+      >
+        <ChevronRight />
+      </button>
+
+      {/* Indicators */}
+      <div className="absolute bottom-12 flex gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`h-2 w-2 rounded-full ${
+              current === index ? "bg-indigo-500" : "bg-gray-300"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Scroll Hint */}
+      <div className="absolute -bottom-2 flex flex-col items-center  animate-bounce">
+        <ChevronDown size={22} />
+        <span className="text-xs">Scroll</span>
+      </div>
+    </section>
   );
 };
 

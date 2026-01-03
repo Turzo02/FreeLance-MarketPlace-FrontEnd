@@ -17,7 +17,7 @@ const WhyChooseUs = () => {
               />
             </div>
             <div className="md:w-1/2 text-center md:text-left order-2 md:order-1 glassmorphic-card p-8 rounded-2xl shadow-lg">
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight  tracking-tight text-indigo-500">
+              <h1 className="text-2xl sm:text-3xl lg:text-3xl font-extrabold leading-tight  tracking-tight text-indigo-500">
                 Why Choose Our Platform?{" "}
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-gray-400 max-w-xl mx-auto md:mx-0 text-center md:text-justify">
