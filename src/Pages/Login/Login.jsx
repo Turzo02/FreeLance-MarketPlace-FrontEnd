@@ -11,6 +11,13 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
   const { googleSignIn, signInUser } = use(AuthContext);
   const navigate = useNavigate();
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const HandleDemoLogin = () =>{
+    setEmail("demo.user@gmail.com")
+    setPassword("demoPass")
+  }
 
   const location = useLocation();
   let from = location.state || "/";
@@ -96,6 +103,7 @@ const Login = () => {
       });
   };
 
+
   return (
     <div>
       {/* Login page and Functionlaity Added */}
@@ -107,14 +115,22 @@ const Login = () => {
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
+                
               <form onSubmit={handleLogin}>
                 <fieldset className="fieldset">
+                  <button onClick={HandleDemoLogin}
+                   type="button"
+                    className="btn   border-none">
+                                   Use Demo Credential
+                                  </button>
                   <label className="label">Email</label>
                   <input
                     type="email"
                     className="input"
                     placeholder="Email"
                     name="email"
+                    value={email}
+                    onChange={(e)=>setEmail(e.target.value)}
                   />
 
                   {/* password */}
@@ -126,6 +142,8 @@ const Login = () => {
                       className="input"
                       placeholder="Enter your password"
                       required
+                      value={password}
+                    onChange={(e)=>setPassword(e.target.value)}
                     />
                     {/* Eye icon */}
                     <button
