@@ -53,13 +53,7 @@ const Links = (
     {user && (
       <>
         <li>
-          <NavLink to="/addAJob">Add a Job</NavLink>
-        </li>
-        <li>
-          <NavLink to="/acceptedTasks">My Accepted Tasks</NavLink>
-        </li>
-        <li>
-          <NavLink to={`/myaddedjobs/${user.email}`}>My Added Jobs</NavLink>
+          <NavLink to="/dashboard">Dashboard</NavLink>
         </li>
       </>
     )}
@@ -129,53 +123,60 @@ if(loading){
           <ul className="menu menu-horizontal px-1">{Links}</ul>
         </div>
 
-        {/* Navbar-end */}
-        <div className="navbar-end flex items-center gap-2">
-          {/* Profile info only on large screens */}
-          {user && (
-            <div className="hidden lg:flex items-center gap-2 group cursor-pointer">
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
-                {user.displayName}
-              </span>
-              <img
-                src={user.photoURL}
-                alt="Profile"
-                className="w-8 h-8 object-cover rounded-sm"
-              />
-            </div>
-          )}
-
-          {/* Login / Logout buttons always visible */}
-          {user ? (
-            <button
-              onClick={handleSignOut}
-              className="btn bg-indigo-500 text-white border-none"
-            >
-              Logout
-            </button>
-          ) : (
-            <>
-              <Link to="/login">
-                <button className="btn  bg-indigo-500 text-white  border-none">
-                  Login
-                </button>
-              </Link>
-              <Link to="/register">
-                <button className="btn bg-indigo-500 text-white border-none ">
-                  Register
-                </button>
-              </Link>
-            </>
-          )}
-
-          {/* Theme toggle */}
-          <input
-            onClick={toggleTheme}
-            type="checkbox"
-            defaultChecked
-            className="toggle toggle-primary ml-2 border border-violet-500"
+      {/* Navbar-end */}
+<div className="navbar-end flex items-center gap-2">
+  {user ? (
+    <div className="dropdown dropdown-end">
+      {/* Avatar button */}
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-9 rounded-sm">
+          <img
+            src={user.photoURL || "https://api.dicebear.com/7.x/notionists/svg?seed=Data_User_006"}
+            alt="Profile"
+            referrerPolicy="no-referrer"
           />
         </div>
+      </label>
+
+      {/* Dropdown menu */}
+      <ul
+        tabIndex={0}
+        className="menu menu-sm dropdown-content mt-3 p-2 shadow-sm border rounded-sm bg-base-100 w-52"
+      >
+        <li className="px-3 py-2 text-sm font-semibold cursor-default">
+          {user.displayName}
+        </li>
+        <li className="border-t mt-1 pt-1">
+          <button onClick={handleSignOut}>Logout</button>
+        </li>
+      </ul>
+    </div>
+  ) : (
+    <>
+      <Link to="/login">
+        <button className="btn bg-indigo-500 text-white border-none">
+          Login
+        </button>
+      </Link>
+
+      <Link to="/register">
+        <button className="btn bg-indigo-500 text-white border-none">
+          Register
+        </button>
+      </Link>
+    </>
+  )}
+
+  {/* Theme toggle */}
+  <input
+    onClick={toggleTheme}
+    type="checkbox"
+    defaultChecked
+    className="toggle toggle-primary ml-2 border border-violet-500"
+  />
+</div>
+
+
       </div>
     </div>
   );

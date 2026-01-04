@@ -22,6 +22,9 @@ import HowITWorks from "./Pages/HowITWorks/HowITWorks";
 import About from "./Pages/AdditionalPages/About.jsx";
 import Privacy from "./Pages/AdditionalPages/Privacy.jsx";
 import FAQ from "./Pages/AdditionalPages/FAQ.jsx";
+import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
+import Profile from "./Pages/Dashboard/Profile.jsx";
+import Analytics from "./Pages/Dashboard/Analytics.jsx";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +48,52 @@ const router = createBrowserRouter([
         element: <AllJobs></AllJobs>,
       },
       {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+          {
+            index: true,
+            element: <Profile></Profile>,
+          },
+          {
+            path: "profile",
+            element: <Profile></Profile>,
+          },
+          {
+            path: "analytics",
+            element:<Analytics></Analytics>,
+          },
+          {
+            path: "addAJob",
+            element: (
+              <PrivateRoute>
+                <AddAJob></AddAJob>
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "acceptedTasks",
+            element: (
+              <PrivateRoute>
+                <MyAcceptedTasks></MyAcceptedTasks>
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "myaddedjobs/:email",
+            loader: ({ params }) =>
+              fetch(
+                `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/user/${params.email}`
+              ),
+            element: (
+              <PrivateRoute>
+                <MyAddedJobs></MyAddedJobs>
+              </PrivateRoute>
+            ),
+          },
+        ],
+      },
+      {
         path: "/about",
         element: <About></About>,
       },
@@ -60,22 +109,7 @@ const router = createBrowserRouter([
         path: "/how-it-works",
         element: <HowITWorks></HowITWorks>,
       },
-      {
-        path: "/addAJob",
-        element: (
-          <PrivateRoute>
-            <AddAJob></AddAJob>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/acceptedTasks",
-        element: (
-          <PrivateRoute>
-            <MyAcceptedTasks></MyAcceptedTasks>
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/jobs/:id",
         loader: ({ params }) =>
@@ -84,18 +118,7 @@ const router = createBrowserRouter([
           ),
         Component: JobDetails,
       },
-      {
-        path: "/myaddedjobs/:email",
-        loader: ({ params }) =>
-          fetch(
-            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/user/${params.email}`
-          ),
-        element: (
-          <PrivateRoute>
-            <MyAddedJobs></MyAddedJobs>
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/updatejob/:id",
         loader: ({ params }) =>

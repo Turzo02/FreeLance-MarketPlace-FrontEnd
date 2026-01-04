@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Twitter, Youtube, Facebook } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="glassmorphic-card rounded-sm shadow-2xl p-8 md:p-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* About Section */}
         <div>

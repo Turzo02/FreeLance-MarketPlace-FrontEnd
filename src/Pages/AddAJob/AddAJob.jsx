@@ -39,7 +39,7 @@ const AddAJob = () => {
           icon: "success",
           showConfirmButton: true,
         }).then(() => {
-          navigate(`/myaddedjobs/${user?.email}`);
+          navigate(`/dashboard/myaddedjobs/${user?.email}`);
         });
       })
       .catch((error) => {

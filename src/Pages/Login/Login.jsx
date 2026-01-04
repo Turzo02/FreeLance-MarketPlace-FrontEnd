@@ -15,8 +15,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const HandleDemoLogin = () =>{
-    setEmail("demo.user@gmail.com")
-    setPassword("demoPass")
+    setEmail("demo.freelanceruser@gmail.com")
+    setPassword("demoPass1@")
   }
 
   const location = useLocation();

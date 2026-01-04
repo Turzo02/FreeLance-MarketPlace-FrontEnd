@@ -45,7 +45,7 @@ const UpdateJob = () => {
         icon: "success",
         confirmButtonText: "OK",
       }).then(() => {
-        navigate(`/myaddedjobs/${userEmail}`);
+        navigate(`/dashboard/myaddedjobs/${userEmail}`);
       });
 
       form.reset();
