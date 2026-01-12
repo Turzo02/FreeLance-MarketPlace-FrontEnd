@@ -30,10 +30,10 @@ const FAQPreviewSection = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-indigo-500">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3   ">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-600">
+          <p className=" ">
             Quick answers to common questions before getting started.
           </p>
         </div>
@@ -43,12 +43,12 @@ const FAQPreviewSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="p-5 border border-indigo-400 rounded-sm shadow-sm"
+              className="p-5 border     rounded-sm shadow-sm"
             >
               <h3 className="font-semibold mb-1">
                 {faq.question}
               </h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm  ">
                 {faq.answer}
               </p>
             </div>
@@ -59,7 +59,7 @@ const FAQPreviewSection = () => {
         <div className="text-center mt-8">
           <Link
             to="/faq"
-            className="inline-flex items-center gap-2 text-indigo-500 font-medium hover:underline"
+            className="inline-flex items-center gap-2    font-medium hover:underline"
           >
             View all FAQs
             <ChevronRight size={16} />

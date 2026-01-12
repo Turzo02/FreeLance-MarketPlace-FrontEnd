@@ -30,7 +30,7 @@ const TopCategories = () => {
     <div>
       <section className="  py-16 md:py-24 font-sans">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-5xl font-bold text-indigo-500 text-center mb-12 md:mb-16">
+          <h2 className="text-3xl lg:text-5xl font-bold    text-center mb-12 md:mb-16">
             Discover Top Categories
           </h2>
 
@@ -39,7 +39,7 @@ const TopCategories = () => {
             {categories.map((category, index) => (
               <motion.div
                 key={index}
-                className="glassmorphic-card p-8 rounded-2xl shadow-lg 
+                className="  p-8 rounded-2xl shadow-lg 
              transition duration-300 ease-in-out transform hover:shadow-xl hover:-translate-y-1 
              flex flex-col items-center text-center"
                 initial={{ opacity: 0, y: 40 }}
@@ -53,7 +53,7 @@ const TopCategories = () => {
                 }}
               >
                 <motion.div
-                  className="w-16 h-16 bg-indigo-50/70 text-indigo-600 rounded-sm flex items-center justify-center mb-6 text-4xl"
+                  className="w-16 h-16    -50/70   -600 rounded-sm flex items-center justify-center mb-6 text-4xl"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{
@@ -76,7 +76,7 @@ const TopCategories = () => {
                 </motion.h3>
 
                 <motion.p
-                  className="text-gray-400 text-base leading-relaxed"
+                  className="  text-base leading-relaxed"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}

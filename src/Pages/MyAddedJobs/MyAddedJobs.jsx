@@ -42,9 +42,9 @@ const MyAddedJobs = () => {
     });
   };
   return (
-    <div className="section min-h-screen">
+    <div className="max-w-7xl min-h-screen">
       <title>My Added Jobs</title>
-      <h1 className="text-center text-4xl  lg:text-5xl my-8 font-bold text-indigo-500 ">
+      <h1 className="text-center text-4xl  lg:text-5xl my-8 font-bold    ">
         <SplitText
           text="Your Added Job"
           className=""
@@ -60,7 +60,7 @@ const MyAddedJobs = () => {
         />
       </h1>
       {jobs.length === 0 ? (
-        <p className="text-center text-gray-400">
+        <p className="text-center  ">
           You have not added any jobs yet.
         </p>
       ) : (
@@ -68,7 +68,7 @@ const MyAddedJobs = () => {
           {jobs.map((job) => (
             <div
               key={job._id}
-              className=" flex  flex-col md:flex-row justify-between items-start md:items-center glassmorphic-card p-2  rounded-2xl my-6 shadow-lg hover:shadow-xl transition-shadow duration-300  "
+              className=" flex  flex-col md:flex-row justify-between items-start md:items-center   p-2  rounded-2xl my-6 shadow-lg hover:shadow-xl transition-shadow duration-300  "
             >
               <div className="left flex gap-4 items-center">
                 <div className="w-[150px] object-cover  rounded-2xl overflow-hidden mx-4 my-4  ">
@@ -82,10 +82,10 @@ const MyAddedJobs = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="text-3xl font-bold text-indigo-400 ">
+                  <h1 className="text-3xl font-bold   ">
                     {job.title}
                   </h1>
-                  <h1 className=" font-semibold text-gray-400 ">
+                  <h1 className=" font-semibold   ">
                     {job.category}
                   </h1>
                 </div>
@@ -93,14 +93,14 @@ const MyAddedJobs = () => {
 
               <div className="right flex gap-4 p-4">
                 <Link to={`/updateJob/${job._id}`}>
-                  <button className="btn  flex items-center justify-center gap-3  bg-indigo-500 text-white hover:bg-indigo-600   rounded-lg  transition cursor-pointer border-none ">
+                  <button className="   flex items-center justify-center gap-3     text-white hover:   -600   rounded-lg  transition cursor-pointer border-none ">
                     <CircleFadingArrowUp />
                     Update
                   </button>
                 </Link>
                 <button
                   onClick={() => handleDeleteUser(job._id)}
-                  className="btn flex-1 flex items-center justify-center gap-3  py-2 rounded-lg  bg-gray-300 text-gray-800 hover:bg-gray-400 transition cursor-pointer border-none"
+                  className="  flex-1 flex items-center justify-center gap-3  py-2 rounded-lg      hover:bg-gray-400 transition cursor-pointer border-none"
                 >
                   <Trash2 />
                   Delete

@@ -43,22 +43,22 @@ export default function Analytics() {
 
   return (
     <div className="max-w-3xl space-y-6">
-      <h2 className="text-indigo-500 text-xl">
+      <h2 className="   text-xl">
         Analytics
       </h2>
 
       {/* Stats Card */}
-      <div className="border border-indigo-500 rounded-lg p-4">
-        <p className="text-gray-400 text-sm">
+      <div className="border     rounded-lg p-4">
+        <p className="  text-sm">
           Total Jobs Posted
         </p>
-        <p className="text-indigo-500 text-3xl font-semibold">
+        <p className="   text-3xl font-semibold">
           {jobs.length}
         </p>
       </div>
 
       {/* Chart */}
-      <div className="border border-indigo-500 rounded-lg p-4 h-64">
+      <div className="border     rounded-lg p-4 h-64">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData}>
             <XAxis dataKey="name" stroke="#a5b4fc" />
@@ -70,11 +70,11 @@ export default function Analytics() {
       </div>
 
       {/* Coming Soon */}
-      <div className="border border-indigo-500 rounded-lg p-4">
-        <p className="text-indigo-500 mb-1">
+      <div className="border     rounded-lg p-4">
+        <p className="   mb-1">
           More analytics coming soon
         </p>
-        <p className="text-gray-400 text-sm">
+        <p className="  text-sm">
           Job categories breakdown, user activity, monthly growth,
           and advanced insights will be added here.
         </p>

@@ -54,9 +54,9 @@ const MyAcceptedTasks = () => {
     }
   };
   return (
-    <div className="min-h-screen section ">
+    <div className="min-h-screen max-w-7xl mx-auto">
       <title>My Accepted Tasks</title>
-      <h1 className="text-center text-4xl lg:text-5xl my-4 font-bold text-indigo-500 ">
+      <h1 className="text-center text-4xl lg:text-5xl my-4 font-bold    ">
         <SplitText
           text="Your Accepted Tasks"
           className=""
@@ -77,7 +77,7 @@ const MyAcceptedTasks = () => {
           <LoadingSpinner />
         </div>
       ) : tasks.length === 0 ? (
-        <p className="text-center text-gray-400 py-20">
+        <p className="text-center   py-20">
           You have no accepted tasks yet.
         </p>
       ) : (
@@ -85,7 +85,7 @@ const MyAcceptedTasks = () => {
           {tasks.map((task) => (
             <div
               key={task._id}
-              className="glassmorphic-card rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="  rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <img
                 src={task.coverImage}
@@ -96,7 +96,7 @@ const MyAcceptedTasks = () => {
               <div className="p-4 flex flex-col gap-2">
                 <h2 className="text-lg font-semibold">{task.title}</h2>
                 <p className="text-sm">Posted by: {task.postedBy}</p>
-                <p className="text-gray-400 text-sm">
+                <p className="  text-sm">
                   Category: {task.category}
                 </p>
                 <p className="text-sm mt-2 line-clamp-2">{task.summary}</p>
@@ -105,14 +105,14 @@ const MyAcceptedTasks = () => {
                 <div className="mt-4 flex gap-3">
                   <button
                     onClick={() => handleCancel(task._id)}
-                    className="flex-1 rounded-lg flex items-center justify-center gap-3 py-2 bg-indigo-500 text-white hover:bg-indigo-600 transition-colors duration-300 ease-in-out cursor-pointer"
+                    className="flex-1 rounded-lg flex items-center justify-center gap-3 py-2    text-white hover:   -600 transition-colors duration-300 ease-in-out cursor-pointer"
                   >
                     <CircleCheckBig /> Done
                   </button>
 
                   <button
                     onClick={() => handleCancel(task._id)}
-                    className="flex-1 flex items-center justify-center gap-3 py-2 bg-gray-300 text-gray-800 hover:bg-gray-400 rounded-lg transition-colors duration-300 ease-in-out cursor-pointer"
+                    className="flex-1 flex items-center justify-center gap-3 py-2     hover:bg-gray-400 rounded-lg transition-colors duration-300 ease-in-out cursor-pointer"
                   >
                     <MessageCircleX /> Cancel
                   </button>

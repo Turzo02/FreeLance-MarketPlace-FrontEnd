@@ -15,10 +15,10 @@ const PartnersSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-indigo-500">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3   ">
             Trusted By Tools & Partners
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">
+          <p className="  max-w-xl mx-auto">
             We work with modern platforms and tools freelancers already trust.
           </p>
         </div>
@@ -28,9 +28,9 @@ const PartnersSection = () => {
           {partners.map((name, index) => (
             <div
               key={index}
-              className="flex items-center justify-center h-20 border border-indigo-400 rounded-sm shadow-sm
+              className="flex items-center justify-center h-20 border     rounded-sm shadow-sm
                           font-medium text-sm
-                         hover:border-indigo-500 hover:text-indigo-500 transition"
+                         hover:    hover:   transition"
             >
               {name}
             </div>

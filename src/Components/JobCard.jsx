@@ -16,7 +16,7 @@ const JobCard = ({ LatestJobsData }) => {
                         key={job._id} 
                         className="
                         border border-gray-200
-                        glassmorphic-card rounded-xl overflow-hidden  shadow-lg hover:shadow-xl transition-shadow duration-300"
+                        rounded-xl overflow-hidden  shadow-lg hover:shadow-xl transition-shadow duration-300"
                     >
                         <img 
                             className="w-full h-48 object-cover rounded-t-xl" 
@@ -25,13 +25,13 @@ const JobCard = ({ LatestJobsData }) => {
                             alt="Job cover" 
                         />
                         <div className="p-6">
-                            <div className="text-sm font-semibold uppercase tracking-wide mb-2 text-indigo-400">
+                            <div className="text-sm font-semibold uppercase tracking-wide mb-2  ">
                                 {job.category}
                             </div>
                             <h3 className="text-xl font-bold mb-2 ">
                                 {job.title}
                             </h3>
-                            <p className="mb-4 text-gray-400 line-clamp-2">
+                            <p className="mb-4   line-clamp-2">
                                 {job.summary}
                             </p>
                             <div className="flex justify-between items-center text-sm  ">

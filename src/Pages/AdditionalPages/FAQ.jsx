@@ -37,7 +37,7 @@ const FAQ = () => {
   return (
     <div className="min-h-screen p-8 md:p-12">
       <div className="max-w-4xl mx-auto space-y-8">
-        <h1 className="text-4xl font-bold text-center text-indigo-500 mb-4">
+        <h1 className="text-4xl font-bold text-center    mb-4">
           Frequently Asked Questions
         </h1>
         {faqs.map((faq, index) => (
@@ -45,7 +45,7 @@ const FAQ = () => {
             key={index}
             className="border sm:rounded-sm shadow-sm p-4 space-y-2"
           >
-            <h2 className="text-2xl font-semibold text-indigo-500">
+            <h2 className="text-2xl font-semibold   ">
               {faq.question}
             </h2>
             <p className=" text-lg">{faq.answer}</p>

@@ -22,10 +22,10 @@ const PopularSkillsSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-indigo-500">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3   ">
             Popular Skills
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="  max-w-2xl mx-auto">
             Explore trending skills and find jobs that match your expertise.
           </p>
         </div>
@@ -36,8 +36,8 @@ const PopularSkillsSection = () => {
             <Link
               key={index}
               to={`/allJobs?skill=${encodeURIComponent(skill)}`}
-              className="inline-flex items-center gap-2 px-4 py-2 border border-indigo-500 rounded-sm shadow-sm text-sm font-medium
-                         hover:bg-indigo-500 hover:text-white transition"
+              className="inline-flex items-center gap-2 px-4 py-2 border     rounded-sm shadow-sm text-sm font-medium
+                         hover:   hover:text-white transition"
             >
               <Hash size={14} />
               {skill}

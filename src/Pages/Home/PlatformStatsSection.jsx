@@ -29,10 +29,10 @@ const PlatformStatsSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-indigo-500">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3   ">
             Platform in Numbers
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="  max-w-2xl mx-auto">
             A quick look at the growth and activity of our freelance marketplace.
           </p>
         </div>
@@ -44,16 +44,16 @@ const PlatformStatsSection = () => {
             return (
               <div
                 key={index}
-                className="p-6 border border-indigo-400 rounded-sm shadow-sm text-center hover:translate-y-[-4px] transition"
+                className="p-6 border     rounded-sm shadow-sm text-center hover:translate-y-[-4px] transition"
               >
-                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-sm bg-indigo-500 text-white">
+                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-sm    text-white">
                   <Icon size={24} />
                 </div>
 
                 <h3 className="text-3xl font-bold mb-1">
                   {stat.value}
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm  ">
                   {stat.label}
                 </p>
               </div>

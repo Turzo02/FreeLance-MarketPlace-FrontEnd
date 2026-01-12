@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+body {
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+}
+
+.active {
+    border: 2px solid #008cff;
+}

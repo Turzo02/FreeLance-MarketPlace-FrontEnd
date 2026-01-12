@@ -51,9 +51,9 @@ const AllJobs = () => {
   const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
 
   return (
-    <div className="section p-4">
+    <div className="max-w-7xl mx-auto p-4">
       <title>All Jobs</title>
-      <h2 className="glassmorphic-card text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-center my-7 py-6 text-indigo-500">
+      <h2 className="  text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-center my-7 py-6   ">
         <SplitText
           text="Find Your Next Job"
           className=""
@@ -75,7 +75,7 @@ const AllJobs = () => {
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
-          className="border border-indigo-400 rounded-lg px-4 py-2 bg-indigo-500 text-white w-full md:w-auto"
+          className="border     rounded-lg px-4 py-2    text-white w-full md:w-auto"
         >
           <option value="descending">Sort by Newest</option>
           <option value="ascending">Sort by Oldest</option>
@@ -90,7 +90,7 @@ const AllJobs = () => {
             setSearchTerm(e.target.value);
             setCurrentPage(1);
           }}
-          className="border border-indigo-400 rounded-lg px-4 py-2 w-full md:w-1/3"
+          className="border     rounded-lg px-4 py-2 w-full md:w-1/3"
         />
 
         {/* Category Filter */}
@@ -100,7 +100,7 @@ const AllJobs = () => {
             setSelectedCategory(e.target.value);
             setCurrentPage(1);
           }}
-          className="border border-indigo-400 rounded-lg px-4 py-2 w-full md:w-1/3 bg-indigo-500 text-white"
+          className="border     rounded-lg px-4 py-2 w-full md:w-1/3    text-white"
         >
           <option value="">All Categories</option>
           <option>Animation & 3D</option>
@@ -130,7 +130,7 @@ const AllJobs = () => {
               {currentJobs.map((job) => (
                 <div
                   key={job._id}
-                  className="glassmorphic-card rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                  className="  rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
                   <img
                     className="w-full h-48 object-cover"
@@ -141,11 +141,11 @@ const AllJobs = () => {
                     }}
                   />
                   <div className="p-6">
-                    <div className="text-sm font-semibold uppercase text-indigo-400 mb-2">
+                    <div className="text-sm font-semibold uppercase   mb-2">
                       {job.category}
                     </div>
                     <h3 className="text-xl font-bold mb-2">{job.title}</h3>
-                    <p className="text-gray-400 mb-4 line-clamp-2">{job.summary}</p>
+                    <p className="  mb-4 line-clamp-2">{job.summary}</p>
                     <div className="flex justify-between items-center text-sm">
                       <span className="flex justify-center items-center gap-2">
                         <UserCheck /> {job.postedBy}
@@ -154,9 +154,9 @@ const AllJobs = () => {
                     </div>
                     <Link to={`/jobs/${job._id}`}>
                       <button
-                        className="mt-8 px-10 py-4 bg-indigo-500 text-white font-bold text-lg rounded-sm shadow-xl 
-                         hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-[1.02] 
-                         focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-75 w-full cursor-pointer"
+                        className="mt-8 px-10 py-4    text-white font-bold text-lg rounded-sm shadow-xl 
+                         hover:   -700 transition duration-300 ease-in-out transform hover:scale-[1.02] 
+                         focus:outline-none focus:ring-4 focus:  focus:ring-opacity-75 w-full cursor-pointer"
                       >
                         View Details
                       </button>
@@ -176,8 +176,8 @@ const AllJobs = () => {
                   onClick={() => setCurrentPage(page)}
                   className={`px-4 py-2 rounded-lg ${
                     currentPage === page
-                      ? "bg-indigo-500 text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      ? "   text-white"
+                      : "    hover: "
                   }`}
                 >
                   {page}

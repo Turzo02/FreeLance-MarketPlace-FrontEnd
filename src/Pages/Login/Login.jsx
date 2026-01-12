@@ -107,20 +107,20 @@ const Login = () => {
   return (
     <div>
       {/* Login page and Functionlaity Added */}
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero   min-h-screen">
             <title>Login</title>
         <div className="hero-content flex-col ">
           <div className="text-center lg:text-left mb-5">
             <h1 className="text-5xl font-bold">Login now!</h1>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card   w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body">
                 
               <form onSubmit={handleLogin}>
                 <fieldset className="fieldset">
                   <button onClick={HandleDemoLogin}
                    type="button"
-                    className="btn   border-none">
+                    className="    border-none">
                                    Use Demo Credential
                                   </button>
                   <label className="label">Email</label>
@@ -152,22 +152,22 @@ const Login = () => {
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? (
-                        <FaEyeSlash  className="text-indigo-500" size={20} />
+                        <FaEyeSlash  className="  " size={20} />
                       ) : (
-                        <FaEye className="text-indigo-500"  size={20} />
+                        <FaEye className="  "  size={20} />
                       )}
                     </button>
                   </div>
                   <div>
                     <a className="link link-hover">Forgot password?</a>
                   </div>
-                  <button className="btn btn-neutral mt-4">Login</button>
+                  <button className="   -neutral mt-4">Login</button>
                 </fieldset>
               </form>
 
               <button
                 onClick={handleGoogleSignIn}
-                className="btn bg-white text-black border-[#e5e5e5]"
+                className="  bg-white   border-[#e5e5e5]"
               >
                 <svg
                   aria-label="Google logo"
@@ -198,7 +198,7 @@ const Login = () => {
                 </svg>
                 Sign in With Google
               </button>
-              <p className="text-center text-gray-600 ">
+              <p className="text-center   ">
                 Didn't have an account?{" "}
                 <Link
                   className="link link-hover font-medium text-green-400 "

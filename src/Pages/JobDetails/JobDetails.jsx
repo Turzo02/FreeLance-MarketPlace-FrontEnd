@@ -55,19 +55,19 @@ const JobDetails = () => {
           />
 
           {/* Content Section */}
-          <div className="p-6 sm:p-10 glassmorphic-card">
+          <div className="p-6 sm:p-10  ">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <h1 className="text-2xl sm:text-3xl font-bold">{data.title}</h1>
-              <span className="py-2 px-4 glassmorphic-card  text-sm font-semibold rounded-sm">
+              <span className="py-2 px-4    text-sm font-semibold rounded-sm">
                 {data.category}
               </span>
             </div>
 
             {/* Posted Info */}
-            <div className="mt-3 text-gray-400 text-sm">
+            <div className="mt-3   text-sm">
               <p>
                 Posted by{" "}
-                <span className="font-medium text-gray-400">
+                <span className="font-medium  ">
                   {data.postedBy}
                 </span>
               </p>
@@ -91,14 +91,14 @@ const JobDetails = () => {
             <div className="mt-8">
               {postedJobUserMail === loggedInUserMail ? (
                 <button
-                  className="btn btn-secondary cursor-not-allowed"
+                  className="   -secondary cursor-not-allowed"
                   disabled
                 >
                   Cannot accept your own job
                 </button>
               ) : data.acceptedUserMail?.includes(loggedInUserMail) ? (
                 <button
-                  className="btn btn-secondary cursor-not-allowed"
+                  className="   -secondary cursor-not-allowed"
                   disabled
                 >
                   You already accepted this job
@@ -108,7 +108,7 @@ const JobDetails = () => {
                 <button
                 disabled={!user}
                   onClick={handleAcceptedJob}
-                  className="inline-block w-full disabled:opacity-50  disabled:cursor-not-allowed sm:w-auto cursor-pointer text-center bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg "
+                  className="inline-block w-full disabled:opacity-50  disabled:cursor-not-allowed sm:w-auto cursor-pointer text-center    text-white font-semibold px-6 py-3 rounded-lg "
                 >
                    {
                     !user ? "Login To Access This feature":"Accept the Job"

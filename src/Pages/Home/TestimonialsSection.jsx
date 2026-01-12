@@ -27,10 +27,10 @@ const TestimonialsSection = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-indigo-500">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3   ">
             What People Say
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">
+          <p className="  max-w-xl mx-auto">
             Real experiences from freelancers and clients using the platform.
           </p>
         </div>
@@ -40,24 +40,24 @@ const TestimonialsSection = () => {
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="p-6 border border-indigo-500 rounded-sm shadow-sm hover:translate-y-[-4px] transition"
+              className="p-6 border     rounded-sm shadow-sm hover:translate-y-[-4px] transition"
             >
               {/* Stars */}
-              <div className="flex gap-1 mb-4 text-indigo-500">
+              <div className="flex gap-1 mb-4   ">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={16} fill="currentColor" />
                 ))}
               </div>
 
               {/* Review */}
-              <p className="text-sm text-gray-400 mb-4">
+              <p className="text-sm   mb-4">
                 “{item.review}”
               </p>
 
               {/* User */}
               <div className="border-t pt-3">
                 <p className="text-sm font-semibold">{item.name}</p>
-                <p className="text-xs text-gray-500">{item.role}</p>
+                <p className="text-xs  ">{item.role}</p>
               </div>
             </div>
           ))}

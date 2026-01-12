@@ -53,20 +53,18 @@ const Banner = () => {
 
   return (
     <section
-      className="relative h-[65vh] overflow-hidden flex items-center justify-center 
-bg-linear-to-br from-indigo-50 via-indigo-100 to-indigo-200 
-dark:from-indigo-200 dark:via-indigo-400 dark:to-indigo-600"
+      className="relative h-[65vh] overflow-hidden flex items-center justify-center"
     >
       {/* Slide Content */}
       <div className="text-center max-w-3xl px-4 transition-all duration-500">
         <h1 className="text-3xl md:text-5xl font-bold mb-4">
           {slides[current].title}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">{slides[current].subtitle}</p>
+        <p className="text-lg   mb-6">{slides[current].subtitle}</p>
 
         <Link
           to={slides[current].ctaLink}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-sm shadow-sm bg-indigo-500 text-white font-medium"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-sm shadow-sm    text-white font-medium"
         >
           {slides[current].ctaText}
           <ArrowRight size={18} />
@@ -97,7 +95,7 @@ dark:from-indigo-200 dark:via-indigo-400 dark:to-indigo-600"
             key={index}
             onClick={() => setCurrent(index)}
             className={`h-2 w-2 rounded-full ${
-              current === index ? "bg-indigo-500" : "bg-gray-300"
+              current === index ? "  " : " "
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

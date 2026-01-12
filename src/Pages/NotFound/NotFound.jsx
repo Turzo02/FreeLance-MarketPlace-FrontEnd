@@ -18,7 +18,7 @@ const NotFound = () => {
 
         {/* Main Content */}
         <div className="relative z-10 flex w-full max-w-lg flex-col items-center">
-          <div className="glassmorphic-card w-full rounded-xl p-8 text-center shadow-lg md:p-12">
+          <div className="  w-full rounded-xl p-8 text-center shadow-lg md:p-12">
             <h1 className="text-7xl font-bold md:text-8xl">404</h1>
 
             <div className="mt-4 flex flex-col items-center gap-2">

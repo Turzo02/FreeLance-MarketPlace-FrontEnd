@@ -12,19 +12,19 @@ export default function Dashboard() {
     `block px-4 py-2 rounded-md border transition
      ${
        isActive
-         ? "text-white bg-indigo-500"
-         : "text-gray-400 border-transparent hover:border-indigo-500 hover:text-indigo-500"
+         ? "text-white   "
+         : "  border-transparent hover:    hover:  "
      }`;
 
   return (
     <div className="max-w-7xl mx-auto min-h-screen flex flex-col md:flex-row ">
       
       {/* Mobile header */}
-      <div className="md:hidden flex items-center justify-between p-4 border-b border-indigo-500">
-        <h1 className="text-indigo-500 font-semibold">Dashboard</h1>
+      <div className="md:hidden flex items-center justify-between p-4 border-b    ">
+        <h1 className="   font-semibold">Dashboard</h1>
         <button
           onClick={() => setOpen(!open)}
-          className="text-indigo-500"
+          className="  "
         >
           ☰
         </button>
@@ -34,7 +34,7 @@ export default function Dashboard() {
       <aside
         className={`md:w-48 w-full md:block ${
           open ? "block" : "hidden"
-        } border-r border-indigo-500 py-4`}
+        } border-r     py-4`}
       >
         <nav className="space-y-2">
           <NavLink to="/dashboard/profile" className={linkClass}>
