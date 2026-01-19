@@ -35,23 +35,50 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div className="min-h-screen p-8 md:p-12">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <h1 className="text-4xl font-bold text-center    mb-4">
-          Frequently Asked Questions
-        </h1>
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className="border sm:rounded-sm shadow-sm p-4 space-y-2"
-          >
-            <h2 className="text-2xl font-semibold   ">
-              {faq.question}
-            </h2>
-            <p className=" text-lg">{faq.answer}</p>
-          </div>
-        ))}
-    
+    <div className="min-h-screen bg-background py-12 px-4 md:px-8 transition-colors duration-300">
+      <div className="max-w-5xl mx-auto">
+        
+        {/* Page Header */}
+        <div className="text-center mb-16 space-y-4">
+
+                    <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+            Frequently <span className="text-primary">Asked Questions</span>
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Everything you need to know about using the platform, managing jobs, and ensuring your security.
+          </p>
+        </div>
+
+        {/* FAQ Grid */}
+        <div className="grid gap-6 md:grid-cols-2">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-lg hover:border-primary/40 transition-all duration-300 group"
+            >
+              <h2 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                {faq.question}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Support Callout */}
+        <div className="mt-16 text-center bg-secondary/30 rounded-lg p-8 border border-border max-w-2xl mx-auto">
+          <h3 className="text-lg font-medium text-foreground mb-2">
+            Still have questions?
+          </h3>
+          <p className="text-muted-foreground mb-4">
+            Can't find the answer you're looking for? Please chat to our friendly team.
+          </p>
+          <button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded-md font-medium transition-colors shadow-sm">
+            Contact Support
+          </button>
+        </div>
+
       </div>
     </div>
   );

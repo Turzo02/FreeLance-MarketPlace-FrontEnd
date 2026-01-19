@@ -1,5 +1,6 @@
 import React from "react";
 import { Mail, Phone, MapPin, Twitter, Youtube, Facebook } from "lucide-react";
+import { Link, Links } from "react-router";
 
 const Footer = () => {
   return (
@@ -26,13 +27,13 @@ const Footer = () => {
           <ul className="space-y-3">
             {["About", "FAQ", "Privacy & Terms"].map((item) => (
               <li key={item}>
-                <a
-                  href={`/${item.toLowerCase().replace(/ & /g, "-")}`}
+                <Link
+                  to={`/${item.toLowerCase().replace(/ & /g, "-")}`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                 >
                   <span className="h-px w-0 bg-primary group-hover:w-3 transition-all duration-300"></span>
                   {item}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

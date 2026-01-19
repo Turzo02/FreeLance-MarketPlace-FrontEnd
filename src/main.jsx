@@ -102,7 +102,7 @@ const router = createBrowserRouter([
         element: <FAQ></FAQ>,
       },
       {
-        path: "/privacy",
+        path: "/privacy-terms",
         element: <Privacy></Privacy>,
       },
       {

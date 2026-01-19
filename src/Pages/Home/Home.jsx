@@ -17,7 +17,7 @@ const latestJobsPromise = axios
 
 const Home = () => {
   return (
-    <div className="section">
+    <div className="max-w-7xl mx-auto">
       <title>Homepage</title>
 
       <Banner />

@@ -1,5 +1,5 @@
-import { Link } from "react-router";
-import { ChevronRight } from "lucide-react";
+import { Link } from "react-router"; // or "react-router-dom"
+import { ChevronRight, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -26,45 +26,54 @@ const faqs = [
 
 const FAQPreviewSection = () => {
   return (
-    <section className="py-16 px-4">
+    <section className="bg-background py-20 px-4 transition-colors duration-300">
       <div className="max-w-4xl mx-auto">
+        
         {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3   ">
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
+            <HelpCircle size={14} />
+            <span>Support</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className=" ">
-            Quick answers to common questions before getting started.
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Quick answers to common questions to help you get started with our platform.
           </p>
         </div>
 
         {/* FAQ Cards */}
-        <div className="space-y-4">
+        <div className="grid gap-4 md:grid-cols-2">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="p-5 border     rounded-sm shadow-sm"
+              className="bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300 group"
             >
-              <h3 className="font-semibold mb-1">
+              <h3 className="font-semibold text-lg mb-3 text-foreground group-hover:text-primary transition-colors">
                 {faq.question}
               </h3>
-              <p className="text-sm  ">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {faq.answer}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Link */}
-        <div className="text-center mt-8">
+        {/* View All Link */}
+        <div className="text-center mt-12">
           <Link
             to="/faq"
-            className="inline-flex items-center gap-2    font-medium hover:underline"
+            className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-colors text-lg group"
           >
             View all FAQs
-            <ChevronRight size={16} />
+            <ChevronRight 
+              size={20} 
+              className="group-hover:translate-x-1 transition-transform duration-200" 
+            />
           </Link>
         </div>
+
       </div>
     </section>
   );
