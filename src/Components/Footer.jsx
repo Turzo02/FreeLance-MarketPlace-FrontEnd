@@ -1,18 +1,16 @@
 import React from "react";
 import { Mail, Phone, MapPin, Twitter, Youtube, Facebook } from "lucide-react";
 import { Link, Links } from "react-router";
+import Logo from "./Logo/Logo";
 
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border pt-16 pb-8 text-card-foreground transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
-        
         {/* About Section - Spans 5 columns on desktop */}
         <div className="md:col-span-5 space-y-4">
-          <h3 className="text-xl font-bold tracking-tight text-foreground">
-            FreeLance MarketPlace
-          </h3>
-          <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
+          <Logo />
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-sm text-justify">
             Connecting freelancers and clients in a seamless digital workspace.
             Explore jobs, post opportunities, and manage tasks efficiently with
             our secure platform.
@@ -88,7 +86,8 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="border-t border-border mt-12 pt-8 text-center">
         <p className="text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} FreeLance MarketPlace. All rights reserved.
+          &copy; {new Date().getFullYear()} FreeLance MarketPlace. All rights
+          reserved.
         </p>
       </div>
     </footer>

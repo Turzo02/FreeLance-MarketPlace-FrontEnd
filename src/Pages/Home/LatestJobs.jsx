@@ -5,8 +5,8 @@ const LatestJobs = ({ latestJobsPromise }) => {
   const LatestJobsData = use(latestJobsPromise);
   return (
     <div>
-      <h1 className="text-center text-4xl lg:text-5xl my-14 font-bold    ">
-        Latest Jobs
+      <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight text-center my-14">
+        Latest <span className="text-primary">Jobs</span>
       </h1>
       <JobCard LatestJobsData={LatestJobsData}></JobCard>
     </div>

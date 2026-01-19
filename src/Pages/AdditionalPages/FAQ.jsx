@@ -37,15 +37,14 @@ const FAQ = () => {
   return (
     <div className="min-h-screen bg-background py-12 px-4 md:px-8 transition-colors duration-300">
       <div className="max-w-5xl mx-auto">
-        
         {/* Page Header */}
         <div className="text-center mb-16 space-y-4">
-
-                    <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
             Frequently <span className="text-primary">Asked Questions</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about using the platform, managing jobs, and ensuring your security.
+            Everything you need to know about using the platform, managing jobs,
+            and ensuring your security.
           </p>
         </div>
 
@@ -72,13 +71,13 @@ const FAQ = () => {
             Still have questions?
           </h3>
           <p className="text-muted-foreground mb-4">
-            Can't find the answer you're looking for? Please chat to our friendly team.
+            Can't find the answer you're looking for? Please chat to our
+            friendly team.
           </p>
           <button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded-md font-medium transition-colors shadow-sm">
             Contact Support
           </button>
         </div>
-
       </div>
     </div>
   );

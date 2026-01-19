@@ -29,7 +29,7 @@ const steps = [
 
 const HowITWorks = () => {
   return (
-    <section className="bg-background px-4 py-12 md:py-16 min-h-screen">
+    <section className="bg-background px-4 py-12 md:py-16 min-h-screen flex  items-center justify-center">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
