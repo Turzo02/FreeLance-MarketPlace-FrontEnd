@@ -29,14 +29,14 @@ const steps = [
 
 const HowITWorks = () => {
   return (
-    <section className="px-4 py-12 md:py-16">
+    <section className="bg-background px-4 py-12 md:py-16 min-h-screen">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-semibold ">
+          <h1 className="text-3xl md:text-4xl font-semibold text-foreground">
             How It Works
           </h1>
-          <p className="mt-3   max-w-2xl mx-auto">
+          <p className="mt-3 max-w-2xl mx-auto text-muted-foreground">
             A simple and transparent workflow designed to connect freelancers
             and clients with ease.
           </p>
@@ -47,15 +47,15 @@ const HowITWorks = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-[rgba(255,255,255,0.05)] border     rounded-sm p-6 text-center hover:shadow-md transition"
+              className="bg-card border border-border rounded-lg p-6 text-center shadow-sm hover:shadow-md hover:border-primary/50 transition duration-300"
             >
-              <div className="w-12 h-12 mx-auto flex items-center justify-center    text-white rounded-sm mb-4">
+              <div className="w-14 h-14 mx-auto flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4">
                 {step.icon}
               </div>
-              <h3 className="text-lg font-medium  mb-2">
+              <h3 className="text-lg font-medium mb-2 text-foreground">
                 {step.title}
               </h3>
-              <p className="text-sm  ">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {step.description}
               </p>
             </div>
@@ -64,7 +64,7 @@ const HowITWorks = () => {
 
         {/* Footer note */}
         <div className="mt-14 text-center">
-          <p className=" ">
+          <p className="text-muted-foreground">
             Freelance MarketPlace keeps everything simple, secure, and fully
             responsive so you can focus on getting work done.
           </p>

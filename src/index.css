@@ -1,11 +1,86 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-body {
-  font-family: "Inter", sans-serif;
-  min-height: 100vh;
+
+@theme {
+  /*    * LIGHT MODE    */
+  --color-background: hsl(140 30% 98%);      /* Very subtle tint of green-grey */
+  --color-foreground: hsl(140 60% 10%);      /* Deep forest green-black for high contrast */
+  --color-card: hsl(0 0% 100%);              /* Pure white */
+  --color-card-foreground: hsl(140 60% 10%);
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(140 60% 10%);
+                                  /* Primary: Fresh, established green */
+  --color-primary: hsl(142 71% 45%);         
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  /* Secondary: Soft minty background for lower hierarchy */
+  --color-secondary: hsl(140 30% 96%);
+  --color-secondary-foreground: hsl(142 71% 35%);
+
+  /* Muted: Neutral greys with tiny hint of green */
+  --color-muted: hsl(140 10% 96%);
+  --color-muted-foreground: hsl(140 10% 45%);
+
+  /* Accent: Hover states, clickable rows */
+  --color-accent: hsl(140 20% 96%);
+  --color-accent-foreground: hsl(142 71% 35%);
+
+  /* Destructive: Soft red, clear but not aggressive */
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+
+  /* Borders & Inputs */
+  --color-border: hsl(140 15% 90%);
+  --color-input: hsl(140 15% 90%);
+  --color-ring: hsl(142 71% 45%);            /* Focus ring matches primary */
+
+  /* Radius */
+  --radius: 0.5rem;
 }
 
-.active {
-    border: 2px solid #008cff;
+[data-theme="dark"] {
+  
+  /*  DARK MODE    */
+  --color-background: hsl(260 40% 6%);       /* Deep, rich purple-black */
+  --color-foreground: hsl(210 20% 98%);      /* Crisp white-grey */
+
+  --color-card: hsl(260 30% 10%);            /* Slightly elevated dark surface */
+  --color-card-foreground: hsl(210 20% 98%);
+
+  --color-popover: hsl(260 30% 10%);
+  --color-popover-foreground: hsl(210 20% 98%);
+
+  /* Primary: Electric, premium purple */
+  --color-primary: hsl(263 70% 65%);
+  --color-primary-foreground: hsl(210 20% 98%);
+
+  /* Secondary: Deep violet surface */
+  --color-secondary: hsl(260 30% 15%);
+  --color-secondary-foreground: hsl(210 20% 98%);
+
+  /* Muted: Cool greys */
+  --color-muted: hsl(260 20% 15%);
+  --color-muted-foreground: hsl(260 10% 65%);
+
+  /* Accent: Glow interaction states */
+  --color-accent: hsl(260 30% 20%);
+  --color-accent-foreground: hsl(210 20% 98%);
+
+  /* Destructive: Slightly desaturated red for dark mode ease */
+  --color-destructive: hsl(0 62% 30%);
+  --color-destructive-foreground: hsl(0 85% 95%);
+
+  /* Borders & Inputs */
+  --color-border: hsl(260 25% 18%);
+  --color-input: hsl(260 25% 18%);
+  --color-ring: hsl(263 70% 65%);            /* Focus ring matches vibrant purple */
+}
+
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }

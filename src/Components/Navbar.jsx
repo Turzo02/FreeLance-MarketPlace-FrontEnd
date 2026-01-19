@@ -2,8 +2,9 @@ import React, { use } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
+import ThemeToggle from "./ThemeToggle/ThemeToggle";
 const Navbar = () => {
-  const { user, signOutUser, loading } = use(AuthContext);
+  const { user, signOutUser } = use(AuthContext);
   const navigate = useNavigate();
 
   const handleSignOut = () => {
@@ -44,9 +45,6 @@ const Navbar = () => {
     </>
   );
 
-  if (loading) {
-    return <div className="z-50 shadow-lg">loading.......</div>;
-  }
 
   return (
   <div className="sticky top-0 z-50 shadow-lg">
@@ -107,6 +105,7 @@ const Navbar = () => {
         {Links}
       </ul>
     </div>
+    <ThemeToggle></ThemeToggle>
 
     {/* Right */}
     <div className="flex items-center gap-2">
