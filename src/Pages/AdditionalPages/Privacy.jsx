@@ -3,8 +3,8 @@ import { Shield, Lock, FileText, CheckCircle } from "lucide-react";
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen bg-background py-16 px-4 md:px-8 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto space-y-12">
+    <div className="min-h-screen bg-background py-24 px-4 md:px-8 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto space-y-12">
         
         {/* Header */}
         <div className="text-center space-y-4 mb-12">

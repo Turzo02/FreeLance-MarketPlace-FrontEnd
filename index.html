@@ -5,6 +5,49 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Freelance Marketplace</title>
+    
+
+    <script>
+      (function() {
+        // Check localStorage for theme preference
+        var theme = localStorage.getItem('theme') || 'light';
+        
+        // Apply theme attributes immediately before any rendering
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    
+    <!-- Enforce background color to prevent white flash -->
+    <style>
+      html {
+        background-color: hsl(140 30% 98%);
+        color: hsl(140 60% 10%);
+        transition: none;
+      }
+      
+      html[data-theme="dark"] {
+        background-color: hsl(260 40% 6%);
+        color: hsl(210 20% 98%);
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: inherit;
+        color: inherit;
+      }
+      
+      /* Prevent flash during loading */
+      #root {
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

@@ -28,9 +28,13 @@ const TopCategories = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-            Discover Top Categories
+                  
+          <h2 
+            className="text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight"
+          >
+            Discover Top <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary/60">Categories</span>
           </h2>
+          
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Browse our most popular categories and find the perfect expert for your next big project.
           </p>

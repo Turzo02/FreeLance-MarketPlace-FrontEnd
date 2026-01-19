@@ -124,7 +124,7 @@ const WhyChooseUs = () => {
               ))}
             </div>
 
-            <button className="mt-4 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all active:scale-95">
+            <button className="mt-4 px-8 py-3 rounded-2xl bg-primary text-primary-foreground font-semibold shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all active:scale-95">
               Learn More About Us
             </button>
           </motion.div>

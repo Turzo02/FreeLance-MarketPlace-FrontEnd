@@ -3,6 +3,14 @@ import React, { useEffect, useState } from "react";
 const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window === "undefined") return false;
+    
+    // Read from HTML attributes first (sync with blocking script)
+    const htmlTheme = document.documentElement.getAttribute('data-theme');
+    if (htmlTheme) {
+      return htmlTheme === 'dark';
+    }
+    
+    // Fallback to localStorage
     return localStorage.getItem("theme") === "dark";
   });
 

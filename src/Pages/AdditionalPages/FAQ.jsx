@@ -35,8 +35,8 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div className="min-h-screen bg-background py-12 px-4 md:px-8 transition-colors duration-300">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-background py-24 px-4 md:px-8 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <div className="text-center mb-16 space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">

@@ -4,8 +4,8 @@ import { Link } from "react-router";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background py-16 px-4 md:px-8 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <div className="min-h-screen bg-background py-24 px-4 md:px-8 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto space-y-16">
         
         {/* Hero Header */}
         <div className="text-center space-y-6 max-w-3xl mx-auto">

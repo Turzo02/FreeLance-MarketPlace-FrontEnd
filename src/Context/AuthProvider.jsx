@@ -5,6 +5,18 @@ import { AuthContext } from './AuthContext';
 import {auth} from '../FireBase/FireBase.init';
 
 import { createUserWithEmailAndPassword } from 'firebase/auth/cordova';
+
+// Theme management logic
+const ThemeInitializer = () => {
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    document.documentElement.classList.toggle("dark", savedTheme === "dark");
+  }, []);
+
+  return null;
+};
+
 const googleProvider = new GoogleAuthProvider()
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
@@ -51,6 +63,8 @@ const AuthProvider = ({children}) => {
     }
     return (
         <div>
+          {/* Initialize theme immediately */}
+          <ThemeInitializer />
           {/* AuthContext Added */}
             <AuthContext value={authInfo}>
                 {children}

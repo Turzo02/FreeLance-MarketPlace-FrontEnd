@@ -61,7 +61,7 @@ const router = createBrowserRouter([
           },
           {
             path: "analytics",
-            element:<Analytics></Analytics>,
+            element: <Analytics></Analytics>,
           },
           {
             path: "addAJob",
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
             path: "myaddedjobs/:email",
             loader: ({ params }) =>
               fetch(
-                `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/user/${params.email}`
+                `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/user/${params.email}`,
               ),
             element: (
               <PrivateRoute>
@@ -114,7 +114,7 @@ const router = createBrowserRouter([
         path: "/jobs/:id",
         loader: ({ params }) =>
           fetch(
-            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`
+            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`,
           ),
         Component: JobDetails,
       },
@@ -123,7 +123,7 @@ const router = createBrowserRouter([
         path: "/updatejob/:id",
         loader: ({ params }) =>
           fetch(
-            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`
+            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${params.id}`,
           ),
         element: (
           <PrivateRoute>
@@ -138,15 +138,16 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <SmoothScroll>
-      <RouterProvider
-        router={router}
-        hydrateFallback={<LoadingSpinner></LoadingSpinner>}
-      />
-      </SmoothScroll>
-    </AuthProvider>
-  </StrictMode>
+    <SmoothScroll>
+      <AuthProvider>
+        <RouterProvider
+          router={router}
+          hydrateFallback={<LoadingSpinner></LoadingSpinner>}
+        />
+      </AuthProvider>
+    </SmoothScroll>
+  </StrictMode>,
 );
