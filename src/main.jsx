@@ -25,7 +25,7 @@ import FAQ from "./Pages/AdditionalPages/FAQ.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 import Profile from "./Pages/Dashboard/Profile.jsx";
 import Analytics from "./Pages/Dashboard/Analytics.jsx";
-
+import SmoothScroll from "./Context/SmoothScroll.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -141,10 +141,12 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
+      <SmoothScroll>
       <RouterProvider
         router={router}
         hydrateFallback={<LoadingSpinner></LoadingSpinner>}
       />
+      </SmoothScroll>
     </AuthProvider>
   </StrictMode>
 );
