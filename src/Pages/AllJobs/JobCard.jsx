@@ -62,7 +62,7 @@ const JobCard = ({ job }) => {
 
         {/* Action Button */}
         <Link to={`/jobs/${job._id}`} className="mt-auto">
-          <button className="w-full group/btn flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-primary/40 active:scale-[0.98] transition-all duration-200">
+          <button className="w-full cursor-pointer group/btn flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-primary/40 active:scale-[0.98] transition-all duration-200">
             View Details
             <ArrowRight size={16} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
           </button>

@@ -24,9 +24,7 @@ const Home = () => {
       <title>Homepage</title>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 py-20">
-        <section>
           <Banner />
-        </section>
 
         {/* Latest Jobs with Suspense */}
         <Suspense

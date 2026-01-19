@@ -39,7 +39,7 @@ const JobCard = ({ LatestJobsData }) => {
                         
                         {/* Title & Arrow */}
                         <div className="flex justify-between items-start mb-3 gap-2">
-                            <h3 className="text-lg font-bold text-foreground leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                            <h3 className="text-lg font-bold text-foreground leading-tight group-hover:text-primary transition-colors line-clamp-1">
                                 {job.title}
                             </h3>
                             <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 group-hover:-translate-y-1" />
