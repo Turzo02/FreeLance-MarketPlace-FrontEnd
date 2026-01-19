@@ -27,6 +27,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 import Profile from "./Pages/Dashboard/Profile.jsx";
 import Analytics from "./Pages/Dashboard/Analytics.jsx";
 import SmoothScroll from "./Context/SmoothScroll.jsx";
+import AuthLayout from "./Layout/AuthLayout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,14 +36,6 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-      },
-      {
-        path: "/login",
-        Component: Login,
-      },
-      {
-        path: "/register",
-        Component: Register,
       },
       {
         path: "/allJobs",
@@ -138,6 +131,24 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/",
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "*",
+        Component: NotFound,
+      }
+    ]
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
@@ -147,20 +158,20 @@ createRoot(document.getElementById("root")).render(
       toastOptions={{
         duration: 4000,
         style: {
-          background: 'var(--color-card)',
-          color: 'var(--color-foreground)',
-          border: '1px solid var(--color-border)',
+          background: "var(--color-card)",
+          color: "var(--color-foreground)",
+          border: "1px solid var(--color-border)",
         },
         success: {
           iconTheme: {
-            primary: 'var(--color-primary)',
-            secondary: 'var(--color-primary-foreground)',
+            primary: "var(--color-primary)",
+            secondary: "var(--color-primary-foreground)",
           },
         },
         error: {
           iconTheme: {
-            primary: 'var(--color-destructive)',
-            secondary: 'var(--color-destructive-foreground)',
+            primary: "var(--color-destructive)",
+            secondary: "var(--color-destructive-foreground)",
           },
         },
       }}
