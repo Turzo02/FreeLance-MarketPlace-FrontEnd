@@ -48,7 +48,7 @@ const LoadingSpinner = () => {
       </div>
 
       {/* --- Custom CSS for specific animations --- */}
-      <style jsx>{`
+      <style>{`
         .animate-spin-slow-reverse {
           animation: spin-reverse 3s linear infinite;
         }

@@ -129,7 +129,7 @@ const Footer = () => {
                   (item) => (
                     <li key={item}>
                       <Link
-                        to={item}
+                        to="/about"
                         className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 group"
                       >
                         {item}

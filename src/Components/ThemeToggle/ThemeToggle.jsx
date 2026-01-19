@@ -1,15 +1,15 @@
+import { Lightbulb, LightbulbOff, Moon } from "lucide-react";
 import React, { useEffect, useState } from "react";
-
 const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window === "undefined") return false;
-    
+
     // Read from HTML attributes first (sync with blocking script)
-    const htmlTheme = document.documentElement.getAttribute('data-theme');
+    const htmlTheme = document.documentElement.getAttribute("data-theme");
     if (htmlTheme) {
-      return htmlTheme === 'dark';
+      return htmlTheme === "dark";
     }
-    
+
     // Fallback to localStorage
     return localStorage.getItem("theme") === "dark";
   });
@@ -39,7 +39,7 @@ const ThemeToggle = () => {
 
     const endRadius = Math.hypot(
       Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
+      Math.max(y, window.innerHeight - y),
     );
 
     const transition = document.startViewTransition(() => {
@@ -58,9 +58,9 @@ const ThemeToggle = () => {
       },
       {
         duration: 750,
-        easing: "cubic-bezier(0.75, 0, 1, 1)", 
+        easing: "cubic-bezier(0.75, 0, 1, 1)",
         pseudoElement: "::view-transition-new(root)",
-      }
+      },
     );
   };
 
@@ -70,7 +70,7 @@ const ThemeToggle = () => {
       className="btn btn-circle btn-ghost text-xl transition-transform hover:scale-110 active:scale-95"
       aria-label="Toggle Theme"
     >
-      {isDarkMode ? "🌙" : "☀️"}
+      {isDarkMode ? <LightbulbOff /> : <Lightbulb />}
     </button>
   );
 };
