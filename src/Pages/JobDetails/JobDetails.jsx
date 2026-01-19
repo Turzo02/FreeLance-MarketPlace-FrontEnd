@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import axios from "axios";
-import Swal from "sweetalert2";
+import toast from 'react-hot-toast';
 import { Calendar, User, CheckCircle, Briefcase, AlertCircle, ArrowLeft } from "lucide-react";
 
 const JobDetails = () => {
@@ -24,22 +24,19 @@ const JobDetails = () => {
         acceptedUserData
       )
       .then((res) => {
-        Swal.fire({
-          title: "Job Accepted!",
-          text: "You have successfully accepted this task.",
-          icon: "success",
-          confirmButtonText: "Go to My Tasks",
-          confirmButtonColor: "hsl(142 71% 45%)", // Matches Green Theme
-        }).then(() => {
-          navigate("/dashboard/acceptedTasks");
+        toast.success('You have successfully accepted this task.', {
+          duration: 3000,
+          position: 'top-right',
         });
+        setTimeout(() => {
+          navigate("/dashboard/acceptedTasks");
+        }, 1000);
       })
       .catch((error) => {
         console.error("Error updating job status:", error);
-        Swal.fire({
-          title: "Error",
-          text: "Something went wrong. Please try again.",
-          icon: "error",
+        toast.error('Something went wrong. Please try again.', {
+          duration: 4000,
+          position: 'top-right',
         });
       });
   };

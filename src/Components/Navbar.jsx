@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router"; // Adjust based on your router version
 import { AuthContext } from "../Context/AuthContext";
-import Swal from "sweetalert2";
+import toast from 'react-hot-toast';
 import ThemeToggle from "./ThemeToggle/ThemeToggle";
 import Logo from "./Logo/Logo";
 import { Menu, X, LogOut, LayoutDashboard, User, ChevronDown } from "lucide-react";
@@ -31,16 +31,13 @@ const Navbar = () => {
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
-        Swal.fire({
-          title: "Signed Out",
-          text: "See you next time!",
-          icon: "success",
-          timer: 1500,
-          showConfirmButton: false,
-          background: "hsl(var(--card))",
-          color: "hsl(var(--foreground))"
+        toast.success('See you next time!', {
+          duration: 3000,
+          position: 'top-right',
         });
-        navigate("/login");
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
       })
       .catch((error) => console.error(error));
   };

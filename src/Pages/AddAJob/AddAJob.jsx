@@ -2,7 +2,7 @@ import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import SplitText from "../../Components/ReactBits/SplitText";
 import { useNavigate } from "react-router";
-import Swal from "sweetalert2";
+import toast from 'react-hot-toast';
 import axios from "axios";
 const AddAJob = () => {
   const { user } = use(AuthContext);
@@ -33,21 +33,19 @@ const AddAJob = () => {
         newJob
       )
       .then((res) => {
-        Swal.fire({
-          title: "Success!",
-          text: "Your job has been added. Click the button to redirect...",
-          icon: "success",
-          showConfirmButton: true,
-        }).then(() => {
-          navigate(`/dashboard/myaddedjobs/${user?.email}`);
+        toast.success('Your job has been added. Redirecting...', {
+          duration: 3000,
+          position: 'top-right',
         });
+        setTimeout(() => {
+          navigate(`/dashboard/myaddedjobs/${user?.email}`);
+        }, 1000);
       })
       .catch((error) => {
         console.error("Error adding job:", error);
-        Swal.fire({
-          title: "Error!",
-          text: "Something went wrong while adding the job.",
-          icon: "error",
+        toast.error('Something went wrong while adding the job.', {
+          duration: 4000,
+          position: 'top-right',
         });
       });
 

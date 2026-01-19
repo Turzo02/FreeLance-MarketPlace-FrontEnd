@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { updateProfile } from "firebase/auth";
-import Swal from "sweetalert2";
+import toast from 'react-hot-toast';
 import axios from "axios";
 
 const Register = () => {
@@ -69,18 +69,20 @@ const Register = () => {
           .catch((error) => {
             console.error("Error saving user:", error);
           });
-        Swal.fire(
-          "Success",
-          "Account created successfully! You will be redirected to home page",
-          "success"
-        );
+        toast.success('Account created successfully! You will be redirected to home page', {
+          duration: 3000,
+          position: 'top-right',
+        });
         setTimeout(() => {
           navigate(`${from}`);
         }, 2000);
         setSuccess(true);
       })
       .catch((error) => {
-        Swal.fire("Error", error.message, "error");
+        toast.error(error.message, {
+          duration: 4000,
+          position: 'top-right',
+        });
       });
   };
 
@@ -108,21 +110,17 @@ const Register = () => {
             console.error("Error saving user:", error);
           });
 
-        Swal.fire({
-          title: "Success",
-          text: "Logged in successfully! Redirecting...",
-          icon: "success",
-          confirmButtonText: "OK",
-        }).then(() => {
-          navigate(`${from}`);
+        toast.success('Logged in successfully! Redirecting...', {
+          duration: 3000,
+          position: 'top-right',
         });
+        navigate(`${from}`);
       })
       .catch((error) => {
         setError(error.message);
-        Swal.fire({
-          title: "Error",
-          text: error.message,
-          icon: "error",
+        toast.error(error.message, {
+          duration: 4000,
+          position: 'top-right',
         });
       });
   };

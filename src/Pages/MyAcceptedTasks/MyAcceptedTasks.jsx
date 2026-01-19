@@ -3,7 +3,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import { CircleCheckBig, MessageCircleX } from "lucide-react";
 import SplitText from "../../Components/ReactBits/SplitText";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
-import Swal from "sweetalert2";
+import toast from 'react-hot-toast';
 import axios from "axios";
 const MyAcceptedTasks = () => {
   const { user } = use(AuthContext);
@@ -38,18 +38,17 @@ const MyAcceptedTasks = () => {
 
       // console.log("Cancel response:", res.data);
 
-      Swal.fire({
-        title: "Success",
-        icon: "success",
+      toast.success('Task completed successfully!', {
+        duration: 3000,
+        position: 'top-right',
       });
 
       setTasks(tasks.filter((task) => task._id !== jobId));
     } catch (error) {
       console.error("Error canceling job:", error);
-      Swal.fire({
-        title: "Error",
-        text: "Failed to cancel the job.",
-        icon: "error",
+      toast.error('Failed to cancel the job.', {
+        duration: 4000,
+        position: 'top-right',
       });
     }
   };

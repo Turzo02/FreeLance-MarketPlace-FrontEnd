@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navigate, useLoaderData, useNavigate } from "react-router";
 import SplitText from "../../Components/ReactBits/SplitText";
-import Swal from "sweetalert2";
+import toast from 'react-hot-toast';
 import axios from "axios";
 const UpdateJob = () => {
   const data = useLoaderData();
@@ -39,23 +39,22 @@ const UpdateJob = () => {
 
       // console.log("Job updated:", res.data);
 
-      Swal.fire({
-        title: "Success!",
-        text: "Your job details have been updated.",
-        icon: "success",
-        confirmButtonText: "OK",
-      }).then(() => {
-        navigate(`/dashboard/myaddedjobs/${userEmail}`);
+      toast.success('Your job details have been updated.', {
+        duration: 3000,
+        position: 'top-right',
       });
+      
+      setTimeout(() => {
+        navigate(`/dashboard/myaddedjobs/${userEmail}`);
+      }, 1000);
 
       form.reset();
       setUserData(newJobData);
     } catch (err) {
       console.error("Error updating job:", err);
-      Swal.fire({
-        title: "Error!",
-        text: "Failed to update the job.",
-        icon: "error",
+      toast.error('Failed to update the job.', {
+        duration: 4000,
+        position: 'top-right',
       });
     }
   };

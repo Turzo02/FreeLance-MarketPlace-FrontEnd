@@ -2,43 +2,56 @@ import { CircleFadingArrowUp, Trash2 } from "lucide-react";
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import SplitText from "../../Components/ReactBits/SplitText";
-import Swal from "sweetalert2";
+import toast from 'react-hot-toast';
 import axios from "axios";
+
 const MyAddedJobs = () => {
   const userJobsData = useLoaderData();
 
   const [jobs, setJobs] = useState(userJobsData);
   const handleDeleteUser = (id) => {
-    Swal.fire({
-      title: "Are you sure you want to delete this job?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#b21c40",
-      cancelButtonColor: "#4f39f6",
-      confirmButtonText: "Yes, delete it!",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        try {
-          const res = await axios.delete(
-            `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${id}`
-          );
-          // console.log("Delete response:", res.data);
-
-              Swal.fire({
-                 title: "Success!",
-                 text: "Your Posted job  has been Deleted.",
-                 icon: "success",
-                 confirmButtonText: "OK",
-               })
-
-          const remaining = jobs.filter((job) => job._id !== id);
-          setJobs(remaining);
-        } catch (error) {
-          console.error("Error deleting job:", error);
-          Swal.fire("Error!", "Failed to delete the job.", "error");
-        }
-      }
+    toast((t) => (
+      <div className="flex flex-col gap-4">
+        <p className="font-semibold">Are you sure you want to delete this job?</p>
+        <p className="text-sm text-muted-foreground">You won't be able to revert this!</p>
+        <div className="flex gap-2">
+          <button
+            onClick={() => {
+              // Perform delete
+              axios
+                .delete(
+                  `https://freelance-marketplace-api-server-smoky.vercel.app/jobs/${id}`
+                )
+                .then((res) => {
+                  toast.success('Your Posted job has been Deleted.', {
+                    id: t.id,
+                    duration: 3000,
+                  });
+                  setJobs(jobs.filter((job) => job._id !== id));
+                })
+                .catch((error) => {
+                  console.error("Error deleting job:", error);
+                  toast.error('Failed to delete the job.', {
+                    id: t.id,
+                    duration: 4000,
+                  });
+                });
+            }}
+            className="px-3 py-2 bg-destructive text-destructive-foreground rounded hover:bg-destructive/90"
+          >
+            Delete
+          </button>
+          <button
+            onClick={() => toast.dismiss(t.id)}
+            className="px-3 py-2 bg-muted text-muted-foreground rounded hover:bg-muted/80"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    ), {
+      duration: Infinity,
+      position: 'top-center',
     });
   };
   return (

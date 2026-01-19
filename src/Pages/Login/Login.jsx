@@ -2,7 +2,7 @@ import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthContext";
-import Swal from "sweetalert2";
+import toast from 'react-hot-toast';
 import axios from "axios";
 
 const Login = () => {
@@ -51,21 +51,19 @@ const Login = () => {
             console.error("Error saving user:", error);
           });
 
-        Swal.fire({
-          title: "Success",
-          text: "Logged in successfully ! Redirecting...",
-          icon: "success",
-          confirmButtonText: "OK",
-        }).then(() => {
-          navigate(`${from}`);
+        toast.success('Logged in successfully! Redirecting...', {
+          duration: 3000,
+          position: 'top-right',
         });
+        setTimeout(() => {
+          navigate(from);
+        }, 1000);
       })
       .catch((error) => {
         setError(error.message);
-        Swal.fire({
-          title: "Error",
-          text: error.message,
-          icon: "error",
+        toast.error(error.message, {
+          duration: 3000,
+          position: 'top-right',
         });
       });
   };
@@ -84,21 +82,19 @@ const Login = () => {
         setSuccess(true);
         e.target.reset();
 
-        Swal.fire({
-          title: "Success",
-          text: "Logged in successfully !",
-          icon: "success",
-          confirmButtonText: "OK",
-        }).then(() => {
-          navigate(`${from}`);
+        toast.success('Logged in successfully!', {
+          duration: 3000,
+          position: 'top-right',
         });
+        setTimeout(() => {
+          navigate(from);
+        }, 1000);
       })
       .catch((error) => {
         setError(error.message);
-        Swal.fire({
-          title: "Error",
-          text: error.message,
-          icon: "error",
+        toast.error(error.message, {
+          duration: 3000,
+          position: 'top-right',
         });
       });
   };
