@@ -25,8 +25,7 @@ export default function Dashboard() {
     { to: "/dashboard/profile", label: "Profile", icon: User },
     { to: `/dashboard/myaddedjobs/${user?.email}`, label: "My Added Jobs", icon: List },
     { to: "/dashboard/addAJob", label: "Add a Job", icon: PlusCircle },
-    { to: "/dashboard/acceptedTasks", label: "Accepted Tasks", icon: CheckSquare },
-    { to: "/dashboard/analytics", label: "Analytics", icon: BarChart2 },
+    { to: "/dashboard/acceptedTasks", label: "Accepted Tasks", icon: CheckSquare }
   ];
 
   return (

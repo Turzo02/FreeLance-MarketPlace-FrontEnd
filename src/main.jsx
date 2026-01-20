@@ -25,7 +25,6 @@ import Privacy from "./Pages/AdditionalPages/Privacy.jsx";
 import FAQ from "./Pages/AdditionalPages/FAQ.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 import Profile from "./Pages/Dashboard/Profile.jsx";
-import Analytics from "./Pages/Dashboard/Analytics.jsx";
 import SmoothScroll from "./Context/SmoothScroll.jsx";
 import AuthLayout from "./Layout/AuthLayout.jsx";
 const router = createBrowserRouter([
@@ -52,10 +51,6 @@ const router = createBrowserRouter([
           {
             path: "profile",
             element: <Profile></Profile>,
-          },
-          {
-            path: "analytics",
-            element: <Analytics></Analytics>,
           },
           {
             path: "addAJob",
